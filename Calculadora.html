@@ -5,18 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+         button {
+            background-color: #862c28;
+            color: #ffffff;
+            border-radius: 2pt;
+            border: 0.5px solid #000000;
+            margin: 10px;
+            padding: 5px;
+            -webkit-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+            box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 100vw;
+            height: 100vh;
+            background: #f7b37c;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .secao {
+            width: 350px;
+            height: 120px;
+            background-color: #d44742;
+            border: 0.5px solid black;
+            padding: 10px 10px 10px 10px;
+            border-radius: 4px;
+            -webkit-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+            box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+            text-align: center;
+        }
+        span {
+            color: #ffffff  ;
+            font-weight: bolder;
+        }
+        #span_result {
+            display: flex;
+            background-color: #862c28;
+            height: auto;
+            width: auto;
+            border: 0.5px solid black;
+            text-align: center;
+            padding: 10px 10px 10px 10px;
+            border-radius: 4px;
+            -webkit-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+            box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+        }
+    </style>
 </head>
 <body>
-    <input type="text" id="input1">
-    <input type="text" id="input2">
-    <input type="text" id="input3">
-    <button onclick="calc()"></button>
+    <div class="secao" id="div_item">
+    
+        <span>Peso das carcaças:</span><br>
+        <input type="text" id="input_carcaca"><br>
+        
+        <span>Carcaças por câmara fria:</span>
+        <input type="text" id="input_camara_fria"><br>  
+        
+        <button onclick="calcular()">
+            Calcular Perda
+        </button><br>
+        <span id="span_result"></span>  
+        
+        </div>
 </body>
 </html>
 <script>
-    function calc() {
-        var _1 = Number(input1.value)
-        var _2 = Number(input2.value)
-        var _3 = Number(input3.value)
-}
+    function calcular() {
+        var peso_carcaca = Number(input_carcaca.value);
+        var quantidade = Number(input_camara_fria.value);
+        var precokg = 20.2;
+        var perda = ((peso_carcaca * precokg * quantidade) * 0.02);
+
+        span_result.innerHTML = `Você perde R$${perda}`;
+    }
 </script>
