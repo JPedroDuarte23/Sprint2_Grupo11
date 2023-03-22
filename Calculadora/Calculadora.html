@@ -93,8 +93,8 @@
             div_form.innerHTML = `
             <span> Peso da carne:</span><br>
             <input type="text" id="input_carcaca"><br>
-            <span>Carnes por geladeira:</span>
-            <input type="text" id="input_camara_fria"><br>  
+            <span>Carnes por geladeira:</span><br>
+            <input type="text" id="input_geladeira<br>
             <button onclick="calcular()">
                 Calcular Perda
             </button><br>
@@ -103,7 +103,7 @@
             div_form.innerHTML = ` 
             <span> Peso da carne:</span><br>
             <input type="text" id="input_carne"><br>
-            <span>Carnes por geladeira:</span>
+            <span>Carnes por geladeira:</span><br>
             <input type="text" id="input_geladeira"><br> 
             <span>Peso das carcaças:</span><br>
             <input type="text" id="input_carcaca"><br>
@@ -121,6 +121,7 @@
     function calcular() {
         var select_option = select_calc.value;
        if (select_option == 'Carnes'){
+        var peso_carne = Number(input_carne.value);
         var quantidade = Number(input_geladeira.value);
         var precokg = 20.2;
         var perda_mrk = ((peso_carcaca * precokg * quantidade) * 0.025);
