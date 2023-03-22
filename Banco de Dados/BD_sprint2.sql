@@ -14,7 +14,7 @@ CREATE TABLE LOTE (
     fk_Lote_Sensor INT,
     CONSTRAINT fk_Lote_Empresa FOREIGN KEY (fk_Lote_Empresa) REFERENCES CADASTRO(UserID),
     CONSTRAINT fk_Lote_Sensor FOREIGN KEY (fk_Lote_Sensor) REFERENCES SENSOR(SensorID)
-)
+);
 CREATE TABLE SENSOR (
     SensorID INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(10),
