@@ -92,11 +92,11 @@
         } else if (select_option == 'Carnes') {
             div_form.innerHTML = `
             <span> Peso da carne:</span><br>
-            <input type="text" id="input_carcaca"><br>
+            <input type="text" id="input_carne"><br>
             <span>Carnes por geladeira:</span><br>
-            <input type="text" id="input_geladeira<br>
+            <input type="text" id="input_geladeira"><br>
             
-            <button class="botao" onclick="calcular()"> Calcular Perda </button>
+            <button onclick="calcular()"> Calcular Perda </button>
             <span id="span_result"></span>  `
         } else if (select_option == 'Ambas') {
             div_form.innerHTML = ` 
@@ -119,26 +119,27 @@
 
     function calcular() {
         var select_option = select_calc.value;
-       if (select_option == 'Carnes'){
+        if (select_option == 'Carcaça') {
+
+        var peso_carcaca = Number(input_carcaca.value);
+        var quantidade_cf = Number(input_camara_fria.value);
+        var precokg = 20.2; 
+        var perda_cf = ((peso_carcaca * precokg * quantidade_cf) * 0.02);
+        var monitoramento_cf = (perda_cf * 0.75);
+
+        span_result.innerHTML = `Você perde R$${perda_cf} do valor total das carcaças armazenadas na câmara fria.<br>
+        Com o nosso seviço de monitoramento sua perda será reduzida em R$${monitoramento_cf}`;
+
+        } else if (select_option == 'Carnes'){
         var peso_carne = Number(input_carne.value);
-        var quantidade = Number(input_geladeira.value);
+        var quantidade_g = Number(input_geladeira.value);
         var precokg = 20.2;
-        var perda_mrk = ((peso_carcaca * precokg * quantidade) * 0.025);
+        var perda_mrk = ((peso_carne * precokg * quantidade_g) * 0.025);
         var monitoramento_geladeira = (perda_mrk* 0.75)
 
         span_result.innerHTML = `Você perde R$${perda_mrk} do valor das carnes
         armazenadas nos supermercados<br> 
         Com o nosso seviço de monitoramento sua perda será reduzida em R$${monitoramento_geladeira}`;
-       } else if (select_option == 'Carcaça') {
-
-        var peso_carcaca = Number(input_carcaca.value);
-        var quantidade = Number(input_camara_fria.value);
-        var precokg = 20.2;
-        var perda_cf = ((peso_carcaca * precokg * quantidade) * 0.02);
-        var monitoramento_cf = (perda_cf * 0.75);
-
-        span_result.innerHTML = `Você perde R$${perda_cf} do valor total das carcaças armazenadas na câmara fria.<br>
-        Com o nosso seviço de monitoramento sua perda será reduzida em R$${monitoramento_cf}`;
 
        } else if (select_option == 'Ambas') {
         var quantidade_cf = Number(input_camara_fria.value);
