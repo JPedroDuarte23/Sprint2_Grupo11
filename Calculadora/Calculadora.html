@@ -7,7 +7,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="style_calculadora.css">
 </head>
-<body>  
+<body>
+    <div class="logomarca">
+        <img src="logo.png" class="logo">
+        <h2 style="font-family: Astro; display: flex; justify-content: left; color: #c23a01;"> &nbsp;TermoGuard</h2>
+    </div>  
+    <div class="bloco">
     <div class="secao" id="div_item">
          <span>Calcular com base em:</span> 
          <select id="select_calc">
@@ -19,7 +24,8 @@
         Gerar Calculadora
         </button>
         <div id="div_form"></div>
-    </div>   
+    </div>
+</div>   
 </body>
 </html>
 <script>
@@ -30,7 +36,6 @@
 
         if (select_option == 'Carcaças') {
             div_form.innerHTML = `
-            <br>
             <span class="titulo">Carcaças</span><br>
             <br>
             <span>Peso das carcaças:</span><br>
@@ -51,7 +56,6 @@
 
         else if (select_option == 'Carnes') {
             div_form.innerHTML = `
-            <br>
             <span class="titulo">Carnes</span><br>
             <br>
             <span> Peso da carne:</span><br>
@@ -67,14 +71,12 @@
 
         else if (select_option == 'Ambas') {
             div_form.innerHTML = ` 
-            <br>
             <span class="titulo">Carnes</span><br>
             <br>
             <span> Peso da carne:</span><br>
             <input type="text" id="input_carne"><br>
             <span>Carnes por geladeira:</span><br>
             <input type="text" id="input_geladeira"><br>
-            <br>
             <br>
             <span class="titulo">Carcaças</span><br>
             <br>
@@ -93,45 +95,44 @@
         }
     }
 
+/******************************************************Função calcular()********************************************************************/
+    
     function calcular() {
         var select_option = select_calc.value;
 
 /******************************************************Opção Carcaça********************************************************************/
         
-        if (select_option == 'Carcaça') {
+        if (select_option == 'Carcaças') {
         var peso_carcaca = Number(input_carcaca.value);
         var quantidade_cf = Number(input_camara_fria.value);
-        var precokg = 20.2; 
+        var precokg = 20.2;
         var temp = Number(input_temperatura.value);
 
         if (temp >= 0 && temp <= 4 ) {
-
             var perda_cf = ((peso_carcaca * precokg * quantidade_cf) * 0.025);
-            span_result.innerHTML = `Você utiliza o método usual, Método usual: a temperatura da câmara é mantida entre 0 a 4ºC. 
+            span_result.innerHTML = `Você utiliza o método usual, no qual a temperatura da câmara é mantida entre 0 a 4ºC. 
             Carcaças bovinas atingem 10ºC em 24 horas e de 0 a 4ºC em 48 horas. Carcaças suínas atingem 10ºC em 
-            12 horas e 0ºC em 24 horas. A perda de peso estimada é de <b>2,0 a 2,5%</b>.<br><br>`
+            12 horas e 0ºC em 24 horas. A perda de peso estimada é de <b>2,0 a 2,5%.</b><br><br>`
         } else if (temp >= -1 && temp <= 2 ){
             var perda_cf = ((peso_carcaca * precokg * quantidade_cf) * 0.018);
-            span_result.innerHTML = `Método rápido: a temperatura da câmara é mantida de -1 a 2ºC, com umidade relativa (UR) 
-            de 85-90% e velocidade de circulação de ar de 2 a 4 m/s. As carcaças de bovinos atingem temperaturas iguais ou 
-            inferiores a 4ºC em 18-24 horas e suínos entre 12-16 horas. A perda de peso estimada é de <b>1,8%</b>.<br><br>` 
+            span_result.innerHTML = `Você utiliza o método rápido, no qual a temperatura da câmara é mantida de -1 a 2ºC, com umidade relativa (UR) 
+            de 85-90%. As carcaças de bovinos atingem temperaturas iguais ou 
+            inferiores a 4ºC em 18-24 horas e suínos entre 12-16 horas. A perda de peso estimada é de <b>1,8%.</b><br><br>` 
         } else if (temp >= -8 && temp <= -5 ) {
             var perda_cf = ((peso_carcaca * precokg * quantidade_cf) * 0.014);
-            span_result.innerHTML = `Método super-rápido ou shock: inicialmente as carcaças são mantidas por 2 horas em antecâmaras 
-            com temperaturas de -8 a -5ºC, UR de 90%, e velocidade de circulação de ar de 2 a 4 m/s. A seguir são transferidas para
-             câmara a 0ºC, UR de 90% e velocidade de circulação de ar de 0,1m/s. A duração do resfriamento (para atingir < 4ºC )
-              é de 12 a 18 horas para bovinos e 8 a 12 horas para suínos. A perda de peso estimada é de <b>1,3 a 1,4%</b>.<br><br>`
+            span_result.innerHTML = `Você utilzia o método super-rápido ou shock, inicialmente as carcaças são mantidas por 2 horas em antecâmaras 
+            com temperaturas de -8 a -5ºC, UR de 90%,. A seguir são transferidas para
+            câmara a 0ºC, UR de 90%. A duração do resfriamento (para atingir < 4ºC )
+            é de 12 a 18 horas para bovinos e 8 a 12 horas para suínos. A perda de peso estimada é de <b>1,3 a 1,4%.</b><br><br>`
         } else if (temp > 4) {
             var perda_cf = ((peso_carcaca * precokg * quantidade_cf) * 1);
-            span_result.innerHTML = `<b>CUIDADO!: </b> Suas carcaças estão em uma temperatura superior ao aconselhavel pelo RTIQ, é melhor checar
+            span_result.innerHTML = `<b>CUIDADO!:</b> Suas carcaças estão em uma temperatura superior ao aconselhavel pelo <b>RTIQ</b>, é melhor checar
             se não há nenhuma proliferação microbiana ou mudança de coloração da carne.<br><br>`
         } else if (temp < -8) {
             var perda_cf = ((peso_carcaca * precokg * quantidade_cf) * 1);
-            span_result.innerHTML = `<b>CUIDADO!:</b> Suas carcaças estão em uma temperatura inferior ao aconselhavel pelo RTIQ, é melhor checar
-            se não há nenhuma mudança de qualidade da carne.<br><br>`
+            span_result.innerHTML = `<b>CUIDADO!:</b> Suas carcaças estão em uma temperatura inferior ao aconselhavel pelo <b>RTIQ</b>, é melhor checar
+            se não há nenhuma mudança de qualidade da carne.<br><br>` 
         }
-
-
             var monitoramento_cf = (perda_cf * 0.75);
 
             span_result.innerHTML += `Você perde <b>R$${perda_cf}</b> do valor total das carcaças armazenadas na câmara fria.<br>
@@ -171,13 +172,13 @@
         } else if (temp >= -1 && temp <= 2 ){
             var perda_cf = ((peso_carcaca * precokg * quantidade_cf) * 0.018);
             span_result.innerHTML = `Método rápido: a temperatura da câmara é mantida de -1 a 2ºC, com umidade relativa (UR) 
-            de 85-90% e velocidade de circulação de ar de 2 a 4 m/s. As carcaças de bovinos atingem temperaturas iguais ou 
+            de 85-90%. As carcaças de bovinos atingem temperaturas iguais ou 
             inferiores a 4ºC em 18-24 horas e suínos entre 12-16 horas. A perda de peso estimada é de <b>1,8%.</b><br><br>` 
         } else if (temp >= -8 && temp <= -5 ) {
             var perda_cf = ((peso_carcaca * precokg * quantidade_cf) * 0.014);
             span_result.innerHTML = `Método super-rápido ou shock: inicialmente as carcaças são mantidas por 2 horas em antecâmaras 
-            com temperaturas de -8 a -5ºC, UR de 90%, e velocidade de circulação de ar de 2 a 4 m/s. A seguir são transferidas para
-            câmara a 0ºC, UR de 90% e velocidade de circulação de ar de 0,1m/s. A duração do resfriamento (para atingir < 4ºC )
+            com temperaturas de -8 a -5ºC, UR de 90%. A seguir são transferidas para
+            câmara a 0ºC, UR de 90%. A duração do resfriamento (para atingir < 4ºC )
             é de 12 a 18 horas para bovinos e 8 a 12 horas para suínos. A perda de peso estimada é de <b>1,3 a 1,4%.</b><br><br>`
         } else if (temp > 4) {
             var perda_cf = ((peso_carcaca * precokg * quantidade_cf) * 1);

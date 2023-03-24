@@ -1,3 +1,7 @@
+@font-face{
+    font-family: "edosz";
+    src: url('Astro.ttf');
+  }
 body {
     margin: 0;
     padding: 0;
@@ -6,7 +10,18 @@ body {
     'Helvetica Neue', sans-serif;
     width: 100vw;
     height: 100vh;
-    background: #f7b37c;
+    background: #e4f2f7;
+}
+.logomarca {
+    display: flex;
+    flex-direction: row;
+}
+.logo {
+    width: 75px;
+    height: 75px;
+}
+.bloco {
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -19,26 +34,26 @@ body {
     margin: auto;
 }
 button {
-    background-color: #862c28;
+    background-color: #c23a01;
     color: #ffffff;
     border-radius: 2pt;
-    border: 0.5px solid #000000;
+    border: 0.25px solid #000000;
     margin: 10px;
     padding: 5px;
-    -webkit-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
-    box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 5px 5px 0px 0px #a92200;
+    -moz-box-shadow: 5px 5px 0px 0px #a92200;
+    box-shadow: 5px 5px 0px 0px #a92200;
 }
 .secao {
     width: auto;
     height: auto;
-    background-color: #d44742;
+    background-color: #d35e37;
     border: 0.5px solid black;
     padding: 10px 10px 10px 10px;
     border-radius: 4px;
-    -webkit-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 0px 0px #92bdca;
+    -moz-box-shadow: 10px 10px 0px 0px #92bdca;
+    box-shadow: 10px 10px 0px 0px #92bdca;
     text-align: center;
 }
 span {
@@ -46,16 +61,16 @@ span {
 }
 #span_result {
     display: block;
-    background-color: #862c28;
+    background-color: #c23a01;
     height: auto;
     width: 400px;
-    border: 0.5px solid black;
+    border: 0.25px solid black;
     text-align: center;
     padding: 10px 10px 10px 10px;
     border-radius: 4px;
-    -webkit-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
-    box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 5px 5px 0px 0px #a92200;
+    -moz-box-shadow: 5px 5px 0px 0px #a92200;
+    box-shadow: 5px 5px 0px 0px #a92200;
 }
 .titulo {
     color: #ffffff  ;
