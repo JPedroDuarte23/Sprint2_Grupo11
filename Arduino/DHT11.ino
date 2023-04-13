@@ -2,7 +2,7 @@
 #define dht_type DHT11
 int dht_pin = A2;
 DHT dht_1 = DHT(dht_pin, dht_type); 
-sensores DHTxx
+
 void setup()
 {
 Serial.begin(9600);
@@ -19,5 +19,6 @@ float temperatura = dht_1.readTemperature();
   Serial.print(umidade);
   Serial.print(";");
   Serial.print(temperatura);
-  Serial.print(";");
+  Serial.println(";");
+}
 }
