@@ -32,7 +32,9 @@ body {
 }
 
 .header .container {
-    justify-content: space-around;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
 }
 
 .titulo {
@@ -179,69 +181,52 @@ body {
 
 /*historia*/
 
-.historia {
-    background-color: #1999C2;
+.secao_2 {
+    height: 70%;
+    margin: 3% 0;
+    background-color: #ade6f7;
+}
+.secao_2 .container {
+    height: 100%;
+    align-items: center;
+    justify-content: right;
+    overflow: hidden;
+}
+
+.secao_2 .caixa_nossa_historia {
+    background-color: white;
+    width: 22.5%;
+    height: 35%;
+    position: absolute;
+    right: 50%;
+    border-radius: 4px;
+    padding: 4% 4% 6% 4%;
+    
+}
+.secao_2 img {
     height: auto;
-    display: flex;
-    align-items: center;
-    position: absolute;
-    width: 940px;
-}
-
-.historia .containerIMG {
-    justify-content: space-between;
-    align-items: center;
-    height: 250px;
-    border: 3px solid red;
-}
-
-.historia h2 {
-    align-items: left;
-}
-
-.box2 {
-    border-radius: 3px;
-    position: absolute;
-    margin-top: 15%;
-    height: 300px;
-    width: 350px;
-    margin-left: 20%;
-    background-color: #ADD8E6;
-    padding: 50px;
-}
-
-.containerIMG {
-    margin-left: 55%;
-}
-
-.box2 .containerIMG img {
-    height: 200px;
-}
-
-.box2 h4 {
-    color: black;
-    font-weight: bold;
-    font-size: 35px;
-    padding: 2px 30px;
-}
-
-.box2 h5 {
-    color: #616060;
-    padding: 2px 30px;
     width: auto;
-    font-size: 1.5vw;
-    margin-top: 25px;
+    max-width: 45%;
+    margin: 0% 15% 0% 0%;
 }
-
-.box2 .BotaoHistoria {
-    background-color: #1999C2;
-    color: white;
-    border-color: #1999C2;
-    margin-top: 125px;
-    height: 10%;
-    margin-left: 15px;
-    padding: 5px 5px;
-    cursor: pointer;
+.caixa_nossa_historia h1 {
+    margin-bottom: 5%;
+    font-size: 2.0vw;
+}
+.caixa_nossa_historia hr {
+    margin-bottom: 5%;
+    background-color: black;
+}
+.caixa_nossa_historia p {
+    font-size: 1.3vw;
+    margin-bottom: 10%;
+}
+.caixa_nossa_historia button {
+    width: 55%;
+    height: 15%;
+    color: black;
+    background-color: #67d1f0;
+    border: none;
     border-radius: 3px;
+    cursor: pointer;
 }
-
