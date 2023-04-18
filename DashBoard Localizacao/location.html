@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./locationcss.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="info-header">
+            <div class="logo">
+                <img src="img/logo.png">
+            </div>
+        </div>
+        <div style="align-items: center;" class="info-header">
+            <i class="fa-solid fa-bell"></i>
+            <img src="data:image/png;base64,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"
+                alt="">
+        </div>
+    </header>
+
+    <section class="main">
+        <div class="sidebar">
+            <hr>
+            <h3>Home</h3>
+            <a href=""><i class="fa-solid fa-house"></i> Graphics</a>
+            <a class="sidebar-active" href=""><i class="fa-solid fa-location-dot"></i> Location</a>
+            <a href=""><i class="fa-solid fa-gear"></i> Config</a>
+            <br/>
+            <hr>
+        </div>
+        <div class="content">
+            <div class="titulo-seccao">
+                <h2>Localização</h2>
+                <br />
+                <div class="separator"></div>
+                <hr>
+                <br />
+                <p><i class="fa-solid fa-house"></i> / Dashboard Conteudo</p>
+            </div>
+            <div class="sensor1">
+                <h2>Sensor Swift ZN</h2>
+                <p><i class="fa-solid fa-snowflake"></i> / <a href="https://www.google.com/maps/place/R.+Augusto+Tolle,+771+-+Santana,+S%C3%A3o+Paulo+-+SP,+02405-001/@-23.4868538,-46.6333411,17z/data=!3m1!4b1!4m6!3m5!1s0x94cef7b494373da3:0xd6b29d19cc346f86!8m2!3d-23.4868538!4d-46.6333411!16s%2Fg%2F11c2h11tcq"><button>02405-001</button></a></p>
+            </div>
+            <div class="sensor2">
+                <h2>Sensor Swift ZL</h2>
+                <p><i class="fa-solid fa-snowflake"></i> / <a href="https://www.google.com/maps/place/Av.+Amador+Bueno+da+Veiga,+2455+-+Penha+de+Fran%C3%A7a,+S%C3%A3o+Paulo+-+SP,+03635-001/@-23.5228122,-46.5247876,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce5e241324f8fd:0x2b17a48607d1792a!8m2!3d-23.5228171!4d-46.5222127!16s%2Fg%2F11bw44741t"><button>03635-001</button></a></p>
+            </div>
+            <div class="sensor3">
+                <h2>Sensor Swift Centro</h2>
+                <p><i class="fa-solid fa-snowflake"></i> / <a href="https://www.google.com/maps/place/R.+Pamplona,+1253+-+Jardim+Paulista,+S%C3%A3o+Paulo+-+SP,+01405-200/@-23.5679826,-46.6603388,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce59c5b2fe0303:0xc16b1885feb76179!8m2!3d-23.5679875!4d-46.6577639!16s%2Fg%2F11b8v84bt2"><button>01405-200</button></a></p>
+            </div>
+            <div class="sensor4">
+                <h2>Sensor Swift ZO</h2>
+                <p><i class="fa-solid fa-snowflake"></i> / <a href="https://www.google.com/maps/place/Av.+Dr.+C%C3%A2ndido+Motta+Filho,+690+-+Cidade+S%C3%A3o+Francisco,+S%C3%A3o+Paulo+-+SP,+05351-000/@-23.5576821,-46.7591334,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce55fa17235f47:0x28bcd7dbc761c952!8m2!3d-23.557687!4d-46.7565585!16s%2Fg%2F11cpcv_x0x"><button>05351-000</button></a></p>
+            </div>
+            <div class="sensor5">
+                <h2>Sensor Swift ZS</h2>
+                <p><i class="fa-solid fa-snowflake"></i> / <a href="https://www.google.com/maps/place/Av.+Ant%C3%B4nio+Barbosa+da+Silva+Sandoval,+250+-+Interlagos,+S%C3%A3o+Paulo+-+SP,+04783-000/@-23.6946657,-46.7044378,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce4fd1ccc857a9:0x407dca33d22abb85!8m2!3d-23.6946706!4d-46.7018629!16s%2Fg%2F11c4d__f74"><button>04783-000</button></a></p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <script src="https://kit.fontawesome.com/26785162bf.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
+<script>
+    function cep() {
+
+    }
+</script>
