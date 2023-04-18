@@ -1,0 +1,5 @@
+padding no box 2
+footer
+tirar margin banner
+colocar mais margin no nossas especilizações
+box shadow na seção nossas especializações

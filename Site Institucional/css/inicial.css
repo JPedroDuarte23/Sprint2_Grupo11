@@ -1,0 +1,219 @@
+/*HEADER*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+html {
+      scroll-behavior: smooth;
+}
+  
+  
+body {
+      margin: auto;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background-color: #dbf0f7;
+      width: 100%;
+      height: 100vh;
+}
+  
+.container {
+      display: flex;
+      width: 80%;
+      padding: 0px;
+      margin: auto;
+      box-sizing: border-box;
+}
+
+.header {
+    background-color: whitesmoke;
+    border-bottom: 5px solid #C23A0D; /* borda da navbar*/
+}
+
+.header .container {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.titulo {
+    color: #C23A0D;
+    font-weight: 500px;
+}
+
+.navbar {
+    display: flex;
+    width: 600px;
+    align-items: center;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.navbar li, .navbar a {
+    color: #C23A0D;
+    text-decoration: none;
+}
+
+/*BANNER*/
+
+.banner {
+    background-image: url('../img/quemsomos_frigocopa_frigorifico_carnes2-1\ 1.png');
+    background-size: cover;
+    margin-bottom: 50px;
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+
+.banner .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+.banner p {
+    width: 280px;
+    font-size: 25px;
+    color: white;
+    padding: 20px;
+    border-radius: 12px; 
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.banner button  {
+    float: none;
+    display: inline-block;
+    background-color: #C23A0D;
+    color: white;
+    border-radius: 6px;
+    padding: 4px 2px;
+    cursor: pointer;
+    font-size: medium;
+    border-color: #C23A0D;
+}
+
+/* Especializações */
+
+.social {
+    background-color: #e2b7a8;
+    flex-direction: row;
+    text-align: center;
+    color: black;
+    margin-bottom: 80px;
+    padding: 30px 300px 30px 0px;
+}
+
+.social .container{
+    height: 400px;
+    justify-content: column;
+}
+
+.boxes {
+    display: flex;
+    padding: 5px 0;
+    gap: 16px;
+    flex-direction: column;
+    
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.box img {
+    width: 370px;
+    height: 180px;
+}
+
+.box h4 {
+    color: black;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 25px;
+    text-align: center;
+    
+}
+
+.boxes .box h4 {
+    flex-direction: column;
+}
+
+
+
+
+/*historia*/
+
+.secao_2 {
+    height: 70%;
+    margin: 3% 0;
+    background-color: #ade6f7;
+}
+.secao_2 .container {
+    height: 100%;
+    align-items: center;
+    justify-content: right;
+    overflow: hidden;
+}
+
+.secao_2 .caixa_nossa_historia {
+    background-color: white;
+    width: 22.5%;
+    height: 35%;
+    position: absolute;
+    right: 50%;
+    border-radius: 4px;
+    padding: 4% 4% 6% 4%;
+    
+}
+.secao_2 img {
+    height: auto;
+    width: auto;
+    max-width: 45%;
+    margin: 0% 15% 0% 0%;
+}
+.caixa_nossa_historia h1 {
+    margin-bottom: 5%;
+    font-size: 2.0vw;
+}
+.caixa_nossa_historia hr {
+    margin-bottom: 5%;
+    background-color: black;
+}
+.caixa_nossa_historia p {
+    font-size: 1.3vw;
+    margin-bottom: 10%;
+}
+.caixa_nossa_historia button {
+    width: 55%;
+    height: 15%;
+    color: black;
+    background-color: #67d1f0;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.footer {
+    width: 100%;
+    height: 100px;
+    background-color: #f2f2f2;
+    border-top: 5px solid #C23A0D; /* borda do foorter */
+    color: #333333;
+
+}
+
+
+.footer .container{
+    
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    
+}

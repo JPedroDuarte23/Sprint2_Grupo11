@@ -1,0 +1,137 @@
+body {
+  background-color: #f3f3f3;
+}
+
+/* Banner */
+
+.banner_cor {
+  background-color: rgb(95, 204, 229);
+  height: 35%;
+}
+
+.banner_cor .container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  height: 100%;
+
+}
+
+.banner_cor h1 {
+
+  font-size: 2vw;
+}
+.banner_cor hr {
+  width: 10%;
+  border: 1px solid black;
+  margin-bottom: 12.5%;
+}
+
+
+/* Seção 1*/
+
+.secao_texto {
+  background-color: #f3f3f3;
+  height: 80%;
+}
+
+.secao_texto .container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+  height: 100%;
+  padding: 23% 0% 10% 0%;
+}
+
+.secao_texto img {
+  width: auto;
+  height: auto;
+  max-width: 45%;
+  position: absolute;
+  top: 35%;
+  border-radius: 5px;
+}
+
+.secao_texto p {
+  width: 60%;
+  font-size: 1.3vw;
+  margin-bottom: 2%;
+}
+
+/* Seção 2*/
+
+
+
+.secao_valores {
+  background: rgb(95, 204, 229);
+  height: 70%;
+  padding: 3% 0%;
+  margin-top: 3% ;   
+}
+
+.secao_valores .container {
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+}
+
+.secao_valores .container h1 {
+  font-size: 1.8vw;
+  color: black;
+  text-align: center;
+}
+
+.secao_valores hr {
+  margin: 0.5% 0% 2% 0%;
+  border: 1px solid black;
+  width: 20%;
+}
+
+.boxes {
+  display: flex;
+  padding: 2% 0;
+  gap: 1.5%;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
+  height: 70%;
+}
+
+.box {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  padding: 4%;
+}
+
+.box hr {
+  width: 50%;
+  border: 1px solid black;
+  margin: 2% 0% 7% 0%;
+}
+
+.box p {
+  text-align: center;
+  font-size: 1.3vw;
+}
+
+.innovation {
+  width: auto;
+  height: auto;
+  max-width: 70%;
+}
+
+.pluralidade {
+  width: auto;
+  height: auto;
+  max-width: 80%;
+}
+
+.conectividade {
+  width: auto;
+  height: auto;
+  max-width: 90%;
+}
