@@ -1,27 +1,40 @@
 * {
-    font-family: arial;
-}
-
-body {
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: white;
+    width: 100%;
+    height: 100vh;
 }
 
 .container {
     display: flex;
     width: 80%;
     margin: auto;
+    padding: 0px;
 }
 
 /* Header */
 
 .header {
     background-color: whitesmoke;
-    border-bottom: 5px solid #C23A0D; /* borda da navbar*/
+    border-bottom: 5px solid #C23A0D;
+    /* borda da navbar*/
 }
 
 .header .container {
     justify-content: space-between;
+    display: flex;
+    flex-direction: row;
 }
 
 .titulo {
@@ -31,14 +44,15 @@ body {
 
 .navbar {
     display: flex;
-    width: 280px;
+    width: 600px;
     align-items: center;
     list-style: none;
     justify-content: space-between;
-    
+
 }
 
-.navbar li, .navbar a {
+.navbar li,
+.navbar a {
     color: #C23A0D;
     text-decoration: none;
 }
@@ -46,7 +60,7 @@ body {
 
 
 
-.banner{
+.banner {
     display: flex;
     padding: 2% 0%;
     flex-direction: row;
@@ -66,51 +80,24 @@ body {
     font-weight: 800;
 }
 
-/* Missão, visão e valores */
-
-.social {
-    background-color: #e5e5e5;
-}
-
-.boxes {
-    display: flex;
-    padding: 30px 0;
-    gap: 16px;
-}
-
-.box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.box img {
-    width: 170px;
-}
-
-.box h4 {
-    color: #ce477f3f;
-    font-weight: bold;
-}
-
 /* Começo do Footer */
 
 .footer {
     width: 100%;
     height: 100px;
     background-color: #f2f2f2;
-    border-top: 5px solid #C23A0D; /* borda do foorter */
+    border-top: 5px solid #C23A0D;
+    /* borda do foorter */
     color: #333333;
 
 }
 
 
-.footer .container{
-    
+.footer .container {
+
     justify-content: center;
     align-items: center;
     height: 100%;
 
-    
-}
 
+}
