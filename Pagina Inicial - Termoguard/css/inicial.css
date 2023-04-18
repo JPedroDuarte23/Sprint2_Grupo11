@@ -230,3 +230,21 @@ body {
     border-radius: 3px;
     cursor: pointer;
 }
+.footer {
+    width: 100%;
+    height: 100px;
+    background-color: #f2f2f2;
+    border-top: 5px solid #C23A0D; /* borda do foorter */
+    color: #333333;
+
+}
+
+
+.footer .container{
+    
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    
+}
