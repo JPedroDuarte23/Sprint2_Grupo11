@@ -72,13 +72,16 @@ body {
     justify-content: center;
 }
 
+
+
+
 .banner p {
     width: 280px;
     font-size: 25px;
-    color: black;
-    background-color: white;
+    color: white;
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 12px; 
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .banner button  {
