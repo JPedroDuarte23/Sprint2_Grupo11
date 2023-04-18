@@ -65,17 +65,6 @@ header{
     height: 100%;
 }
 
-.sidebar a.sidebar-active {
-    border-left: 4px solid #C23A0D;
-    background-color: rgb(245,245,245);
-    color: #777;
-    font-weight: bold;
-}
-
-.sidebar a.sidebar-active > svg{
-    color: #777;
-}
-
 .sidebar h3 {
     color: #333;
     font-size: 20px;
@@ -89,17 +78,6 @@ header{
     color: #444;
 }
 
-.sidebar a:hover {
-    border-left: 4px solid #C23A0D;
-    background-color: rgb(245,245,245);
-    color: #777;
-    font-weight: bold;
-}
-
-.sidebar a:hover .sidebar a > svg {
-    color: #777 ;
-}
-
 .sidebar a > svg {
     color: #444;
 }
@@ -110,8 +88,9 @@ header{
     
 }
 
+
 .titulo-seccao {
-    border-radius: 10px;
+
     background-color: white;
     padding: 10px;
 }
@@ -141,8 +120,6 @@ header{
 }
 
 .sensor1 {
-    margin-top: 15px;
-    border-radius: 10px;
     background-color: white;
     padding: 5px;
 }
@@ -167,8 +144,7 @@ header{
 }
 
 .sensor2 {
-    margin-top: 20px;
-    border-radius: 10px;
+
     background-color: white;
     padding: 5px;
 }
@@ -193,8 +169,7 @@ header{
 }
 
 .sensor3 {
-    margin-top: 20px;
-    border-radius: 10px;
+
     background-color: white;
     padding: 5px;
 }
@@ -219,8 +194,7 @@ header{
 }
 
 .sensor4 {
-    margin-top: 20px;
-    border-radius: 10px;
+
     background-color: white;
     padding: 5px;
 }
@@ -245,8 +219,7 @@ header{
 }
 
 .sensor5 {
-    margin-top: 20px;
-    border-radius: 10px;
+
     background-color: white;
     padding: 5px;
 }
@@ -268,4 +241,22 @@ header{
 .sensor5 button {
     background-color: white;
     border-style: none;
+}
+.sensores {
+    padding: 1% 1%;
+    border-bottom: 1px solid black;
+}
+.texto_importante {
+    padding: 1% 0 1% 3%;
+    background: linear-gradient(90deg, rgba(95,204,229,1) 0%, rgba(173,230,247,1) 100%);
+    border-radius: 5px 5px 0 0;
+    border-bottom :2px solid black;
+}
+.planilha {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 3%;
+    border:2px solid black;
+    display: block;
 }
