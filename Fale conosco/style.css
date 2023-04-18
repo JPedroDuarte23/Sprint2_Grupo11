@@ -18,36 +18,31 @@ body {
 /* Header */
 
 .header {
-    background-color: white;
-    border-bottom: 3px solid #32b9cd;
-   
-  
+    background-color: whitesmoke;
+    border-bottom: 5px solid #C23A0D; /* borda da navbar*/
 }
 
 .header .container {
     justify-content: space-between;
+}
 
-   
+.titulo {
+    color: #C23A0D;
+    font-weight: 500;
 }
 
 .navbar {
     display: flex;
-    width: 200px;
+    width: 280px;
     align-items: center;
     list-style: none;
     justify-content: space-between;
-    
+
 }
 
 .navbar li, .navbar a {
-    color: black;
-    text-decoration: none;
-    padding: 5px;
-    width: 2px;
-    justify-content: space-between;
-    
-    
-}
+    color: #C23A0D;
+    text-decoration: none;}
 .banner {
     background-image: url('./assets/luva.jpg');
     background-size: cover;
