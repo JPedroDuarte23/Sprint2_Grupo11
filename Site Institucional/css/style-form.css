@@ -43,7 +43,7 @@
     
     width: 350px; /* tamanho da input*/
     height: 30px; /*grossura da input*/
-    border-radius: 50px;
+    border-radius: 10px;
     margin-bottom: 20px;
     padding: 0px 0px 0px 20px;   
 }
