@@ -121,17 +121,17 @@ body {
 .innovation {
   width: auto;
   height: auto;
-  max-width: 70%;
-}
-
-.pluralidade {
-  width: auto;
-  height: auto;
   max-width: 80%;
 }
 
-.conectividade {
+.produtividade {
   width: auto;
   height: auto;
-  max-width: 90%;
+  max-width: 100%;
+}
+
+.transparencia {
+  width: auto;
+  height: auto;
+  max-width: 103%;
 }
