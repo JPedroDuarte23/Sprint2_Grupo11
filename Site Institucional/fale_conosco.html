@@ -26,18 +26,18 @@
 	<div class="formulario">
 		<h2>Fale Conosco</h2>
 		<label for="nome">Nome:</label>
-		<input type="text" id="nome" name="nome" placeholder="Seu nome..">
+		<input type="text" id="input_nome" name="nome" placeholder="Seu nome..">
 
 		<label for="email">E-mail:</label>
-		<input type="text" id="email" name="email" placeholder="Seu e-mail..">
+		<input type="text" id="input_email" name="email" placeholder="Seu e-mail..">
 
 		<label for="assunto">Assunto:</label>
-		<input type="text" id="assunto" name="assunto" placeholder="Assunto..">
+		<input type="text" id="input_assunto" name="assunto" placeholder="Assunto..">
 
 		<label for="mensagem">Mensagem:</label>
-		<textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem.." style="height:200px"></textarea>
+		<textarea id="input_mensagem" name="mensagem" placeholder="Digite sua mensagem.." style="height:200px"></textarea>
 
-		<button>Enviar</button>
+		<button onclick="enviar()">Enviar</button>
     </div>
 </div>
 <div class="footer">
@@ -49,3 +49,17 @@
 </div>
 </body>
 </html>
+<script>
+    function enviar() {
+        var nome = input_nome.value
+        var email = input_email.value
+        var assunto = input_assunto.value
+        var mensagem = input_mensagem.value
+	
+        if (nome != "" && mensagem != "" && assunto != "" && mensagem != "") {
+            alert(`Sua Mensagem foi salva com sucesso!  Muito Obrigado pela Colaboração`)
+        } else {
+            alert("Dados Invalidos")
+        }
+    }
+</script>
