@@ -25,8 +25,8 @@
             <header class="">
                 <h2>Configurações</h2>
                 <div class="lateral_icones">
-                    <div class="icone "><img src="Imagens/help.png" alt=""></div>
-                    <div class="icone "><img src="Imagens/notification.png" alt=""></div>
+                    <div class="icone"><i class="fa-solid fa-bell"></i></div>
+                    <div class="icone" onclick="redirecionar_ajuda()"><i class="fa-solid fa-circle-question"></i></div>
                     <div class="user">
                         <div class="circulo"></div>
                         <h4>Swift</h4>
@@ -106,6 +106,9 @@
 </html>
 <script>
     function redirecionar_home() {
-        window.location.href = "Index.html"
+        window.location.href = "../Site Institucional/inicial.html"
+    }
+    function redirecionar_ajuda() {
+        window.location.href = "../Site Institucional/fale_conosco.html"
     }
 </script>

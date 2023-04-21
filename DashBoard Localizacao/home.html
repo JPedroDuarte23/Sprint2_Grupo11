@@ -16,7 +16,7 @@
         <div class="sidebar ">
             <img src="../Site Institucional/img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
             <ul>
-                <li><a href="Dashboard_inicial.html" class="sidebar_active"> <i class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
+                <li><a href="home.html" class="sidebar_active"> <i class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
                 <li><a href="location.html"><i class="fa-solid fa-location-dot fa-lg"></i>Localização</a></li>
                 <li><a href="Configuracao.html"><i class="fa-solid fa-gear fa-lg"></i>Configurações</a></li>
             </ul>
@@ -24,10 +24,10 @@
         </div>
         <div class="caixa_maior">
             <header class="">
-                <h2>Configurações</h2>
+                <h2>Home</h2>
                 <div class="lateral_icones">
-                    <div class="icone "><img src="Imagens/help.png" alt=""></div>
-                    <div class="icone "><img src="Imagens/notification.png" alt=""></div>
+                    <div class="icone" ><i class="fa-solid fa-bell"></i></div>
+                    <div class="icone " onclick="redirecionar_ajuda()"><i class="fa-solid fa-circle-question"></i></div>
                     <div class="user">
                         <div class="circulo"></div>
                         <h4>Swift</h4>
@@ -75,6 +75,14 @@
 </html>
 
 <script>
+
+    function redirecionar_home() {
+        window.location.href = "../Site Institucional/inicial.html"
+    }
+    function redirecionar_ajuda() {
+        window.location.href = "../Site Institucional/fale_conosco.html"
+    }
+
     const graf1 = document.getElementById('myChart1');
     const graf2 = document.getElementById('myChart2');
     const graf3 = document.getElementById('myChart3');
