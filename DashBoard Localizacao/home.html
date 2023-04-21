@@ -13,33 +13,27 @@
 
 <body>
     <section class="main">
-        <div class="sidebar">
-            <img src="./assets/imgs/logo.png" class="logomarca" id="img_logo" onclick="redirecionar_home()">
+        <div class="sidebar ">
+            <img src="../Site Institucional/img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
             <ul>
-                <li><a href="Dashboard_inicial.html" class="sidebar_active"> <i
-                            class="fa-solid fa-chart-simple fa-lg"></i>Home</a></li>
-                <li><a href="Dashboard_localizacao.html"><i class="fa-solid fa-location-dot fa-lg"></i>Localização</a>
-                </li>
-                <li><a href="Dashboard_cofig.html"><i class="fa-solid fa-gear fa-lg"></i>Configurações</a></li>
+                <li><a href="Dashboard_inicial.html" class="sidebar_active"> <i class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
+                <li><a href="location.html"><i class="fa-solid fa-location-dot fa-lg"></i>Localização</a></li>
+                <li><a href="Configuracao.html"><i class="fa-solid fa-gear fa-lg"></i>Configurações</a></li>
             </ul>
 
         </div>
-        <div class="dashboard_elements">
-            <div class="header">
-                <h2>Home</h2>
-                <div class="user_elements">
-                    <div class="icone">
-                        <i class="fa-solid fa-bell"></i>
-                    </div>
-                    <div class="icone">
-                        <i class="fa-regular fa-circle-question"></i>
-                    </div>
-                    <div>
+        <div class="caixa_maior">
+            <header class="">
+                <h2>Configurações</h2>
+                <div class="lateral_icones">
+                    <div class="icone "><img src="Imagens/help.png" alt=""></div>
+                    <div class="icone "><img src="Imagens/notification.png" alt=""></div>
+                    <div class="user">
                         <div class="circulo"></div>
                         <h4>Swift</h4>
                     </div>
                 </div>
-            </div>
+            </header>
             <div class="card_graphic">
                 <div class="informarcoes">
                     <div class="alertas_dia">
@@ -56,18 +50,22 @@
                     </div>
                 </div>
                 <div class="graphics">
+                    <div class="linha1">
                     <div class="grafico">
                         <canvas id="myChart1"></canvas>
                     </div>
                     <div class="grafico">
                         <canvas id="myChart2"></canvas>
                     </div>
+                </div>
+                <div class="linha2">
                     <div class="grafico">
                         <canvas id="myChart3"></canvas>
                     </div>
-                    <div class="graficoPie">
+                    <div class="grafico barra">
                         <canvas id="myChart4"></canvas>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
