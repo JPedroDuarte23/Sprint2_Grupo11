@@ -31,15 +31,17 @@
         <div class="formulario">
             <h4 id="saudacao" >Bem-vindo de volta!</h4>
             <h4>Usuário:</h4>
-            <input type="usuario">
+            <input id="input_usuario" type="usuario">
 
             <h4>Código da empresa:</h4>
-            <input type="email">
+            <input id="input_codigo" type="email">
 
             <h4> Senha:</h4>
-            <input type="password">
+            <input id="input_senha" type="password">
 
-            <button>Login</button>
+            
+
+            <button onclick="validar()">Login</button>
         </div>
      
 </div>
@@ -54,3 +56,14 @@
 </body>
 
 </html>
+<script>
+    function validar (){
+        var usuario = input_usuario.value;
+        var codigo = input_codigo.value;
+        var senha = input_senha.value;
+
+        if( senha == 0 || codigo <= 0 || usuario <=0){
+            alert("Preencha corretamente todos os campos")
+        } 
+    }
+</script>
