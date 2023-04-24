@@ -44,9 +44,8 @@
                 <input id="input_senha" type="password">
                 <h4>Confirme sua senha:</h4>
                 <input id="input_confirma_senha" type="password">
-
+                
                 <button onclick="cadastrar()">Cadastre-se</button>
-                <div id="div_frase"></div>
             </div>
             </div>
         
@@ -64,7 +63,6 @@
 </body>
 
 </html>
-
 <script>
 function cadastrar(){
 var usuario = input_usuario.value
@@ -86,6 +84,9 @@ if (usuario == usuario1 && email == email1 && senha == senha1 && codigo == codig
     div_frase.innerHTML = `Dados inváldos. Tente novamente.`
 }
 }
+
+
+</script>
 
 
 </script>
