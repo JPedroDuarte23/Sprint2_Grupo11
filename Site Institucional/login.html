@@ -33,6 +33,9 @@
             <h4>Usuário:</h4>
             <input id="input_usuario" type="usuario">
 
+            <h4>Email:</h4>
+            <input id="input_email" type="email">
+
             <h4>Código da empresa:</h4>
             <input id="input_codigo" type="email">
 
@@ -58,15 +61,17 @@
 </html>
 <script>
     function validar (){
+        var email = input_email.value
         var usuario = input_usuario.value;
         var codigo = input_codigo.value;
         var senha = input_senha.value;
-        var email1 = "jorge.aragao@sptech.school"
-        var senha1 = "12345678"
-        var codigo1 = "100"
+        var usuario1 = `jorgearagao`;
+        var email1 = "jorge.aragao@sptech.school";
+        var senha1 = "12345678";
+        var codigo1 = 100;
 
-        if(usuario == email1  && senha == senha1 && codigo == codigo1){
-            window.location.href="file:///C:/Users/Administrator/Desktop/Sprint2_Grupo11/Site%20Institucional/inicial.html";
+        if(usuario == usuario1  && senha == senha1 && codigo == codigo1 && email == email1){
+            window.location.href="inicial.html"
         } else {
             alert("Dados inválidos")
     } 
