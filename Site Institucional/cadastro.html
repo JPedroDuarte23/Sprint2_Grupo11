@@ -31,21 +31,21 @@
             <div class="formulario">
                 <h4 id="saudacao" >Olá, prazer!</h4>
                 <h4>Cadastre seu usuário:</h4>
-                <input id="cadastro" type="email">
+                <input id="input_usuario" type="usuario">
                 <h4>Registre seu e-mail:</h4>
-                <input id="email" type="email">
+                <input id="input_email" type="email">
                 <h4>Confirme seu e-mail:</h4>
-                <input id="confirme_email" type="email">
+                <input id="input_confirma_email" type="email">
 
                 <h4>Código da empresa:</h4>
-                <input id="codigo" type="email">
+                <input id="input_codigo" type="codigo">
 
                 <h4>Registre sua senha:</h4>
-                <input id="senha" type="password">
+                <input id="input_senha" type="password">
                 <h4>Confirme sua senha:</h4>
-                <input id="confirme_senha" type="password">
-
-                <button onclick="validar()">Cadastre-se</button>
+                <input id="input_confirma_senha" type="password">
+                
+                <button onclick="cadastrar()">Cadastre-se</button>
             </div>
             </div>
         
@@ -63,6 +63,35 @@
 </body>
 
 </html>
+<<<<<<< HEAD
+=======
+<script>
+function cadastrar(){
+var usuario = input_usuario.value
+var email = (input_email.value);
 
+var codigo = Number(input_codigo.value);
+var senha = (input_senha.value)
+>>>>>>> 5a6b27184c90ed4281a0f79c1fe54b7ab66a2b28
+
+
+var email1 = "jorge.aragao@sptech.school"
+var senha1 = "12345678"
+var codigo1 = 100
+var usuario1 = `jorgearagao`
+if (usuario == usuario1 && email == email1 && senha == senha1 && codigo == codigo1){
+    alert("Cadastro efetuado!")
+    window.location.href="login.html";
+
+} else {
+    div_frase.innerHTML = `Dados inváldos. Tente novamente.`
+}
+}
+
+
+</script>
+
+
+</script>
 
 
