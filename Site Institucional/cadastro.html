@@ -46,9 +46,6 @@
                 <input id="input_confirma_senha" type="password">
                 
                 <button onclick="cadastrar()">Cadastre-se</button>
-                <div id="div_frase">
-
-            </div>
         </div>
     </div>
         
@@ -80,7 +77,7 @@ if (usuario == usuario1 && email == email1 && senha == senha1 && codigo == codig
     alert("Cadastro efetuado!")
     window.location.href="login.html";
 } else {
-    div_frase.innerHTML = `<b style="color:red">Dados inválidos. Tente novamente</b>.`
+    alert("Dados inválidos. Tente novamente")
 }
 }
 
