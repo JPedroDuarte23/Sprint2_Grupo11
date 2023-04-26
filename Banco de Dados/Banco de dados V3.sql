@@ -51,15 +51,17 @@ select * from localizacao;
 create table sensor(
 idSensor int primary key auto_increment,
 situacao int,
+instalacao varchar(9),
 fkLocal int,
+constraint chkInst check (instalacao in ('caminhão', 'câmara', 'geladeira')),
 constraint fkLocal foreign key (fkLocal) references localizacao (idLocal),
 constraint chkSituacao check (situacao in (0, 1))
 ) auto_increment = 400;
 
 insert into sensor values
-(null, '1', 300),
-(null, '1', 301),
-(null, '1', 302);
+(null, '1', 'caminhão', 300),
+(null, '1', 'câmara', 301),
+(null, '1', 'geladeira', 302);
 
 select * from sensor;
 
