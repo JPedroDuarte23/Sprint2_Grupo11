@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <div id="div_blur"></div>
     <section class="main">
         <div class="sidebar ">
             <img src="../Site Institucional/img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
@@ -34,6 +35,11 @@
                     </div>
                 </div>
             </header>
+
+            <div class="botao_registrar">
+                <button onclick="Gerar_pop_up()">Registrar Sensor</button>
+            </div>
+
             <div class="card_graphic">
                 <div class="informarcoes">
                     <div class="alertas_dia">
@@ -75,7 +81,26 @@
 </html>
 
 <script>
-
+    function Gerar_pop_up() {
+        div_blur.innerHTML = `
+        <div class="blur">
+            <div class="pop_up">
+                <h2>Registrar Sensor</h2>
+                <hr>
+                <h3>Localização:</h3>
+                <input type="text">
+                <h3>Situação:</h3>
+                <input type="text">
+                <h3>Código da empresa:</h3>
+                <input type="text">
+                <button onclick="registrar()">Registrar</button>
+            </div>
+        </div>
+        `
+    }
+    function registrar() {
+        div_blur.innerHTML = "";
+    }
     function redirecionar_home() {
         window.location.href = "../Site Institucional/inicial.html"
     }
