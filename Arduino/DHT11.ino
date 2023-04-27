@@ -1,13 +1,12 @@
 #include "DHT.h"
 #define dht_type DHT11
-int dht_pin = A2;
+int dht_pin = A0;
 DHT dht_1 = DHT(dht_pin, dht_type); 
 
 void setup()
 {
 Serial.begin(9600);
 dht_1.begin();
-pinMode(switch_pin, INPUT);
 }
 void loop() {
 float umidade = dht_1.readHumidity();
@@ -21,4 +20,5 @@ float temperatura = dht_1.readTemperature();
   Serial.print(temperatura);
   Serial.println(";");
 }
+  delay(2000);
 }
