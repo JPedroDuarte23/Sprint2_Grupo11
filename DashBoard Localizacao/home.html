@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div id="div_blur"></div>
+    <div id="div_pop_up"></div>
     <section class="main">
         <div class="sidebar ">
             <img src="../Site Institucional/img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
@@ -27,7 +27,7 @@
             <header class="">
                 <h2>Home</h2>
                 <div class="lateral_icones">
-                    <div class="icone" ><i class="fa-solid fa-bell"></i></div>
+                    <div class="icone" onclick="Gerar_alertas()"><i class="fa-solid fa-bell"></i></div>
                     <div class="icone " onclick="redirecionar_ajuda()"><i class="fa-solid fa-circle-question"></i></div>
                     <div class="user">
                         <div class="circulo"></div>
@@ -103,8 +103,48 @@
 </html>
 
 <script>
+    function Gerar_alertas() {
+        div_pop_up.innerHTML = `
+        <div class="blur">
+            <div class="alertas">
+                <h2>Alertas</h2>
+                <hr>
+                <table>
+                        <tr>
+                            <td>
+                                <h4><b style="color: red">Alerta Vermelho</b>&nbsp O sensor 1 da loja Swift - CEP 09520-180 - ultrapassou 4°C</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 5 da loja Swift - CEP 09520-180 - ultrapassou 92,5% UR</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b style="color: purple">Alerta Roxo</b>&nbsp O sensor 7 do frigorifico Bordon - CEP 05120-020 - atingiu uma temperatura abaixo de 0°C
+                                </h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 9 da loja Swift - CEP 02405-001 - ultrapassou 92,5% UR</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b style="color: blue">Alerta Azul</b>&nbsp O sensor 2 da loja Swift - CEP 05351-000 - atingiu uma UR de 84%</h4>
+                            </td>
+                        </tr>
+                        </table>
+                        <button onclick="voltar()">Voltar</button>
+            </div>
+        </div>
+        `
+    }
     function Gerar_pop_up() {
-        div_blur.innerHTML = `
+        div_pop_up.innerHTML = `
         <div class="blur">
             <div class="pop_up">
                 <h2>Registrar Sensor</h2>
@@ -121,8 +161,14 @@
         `
     }
     function registrar() {
-        div_blur.innerHTML = "";
+        div_pop_up.innerHTML = "";
     }
+    function voltar() {
+        div_pop_up.innerHTML = ""
+    }
+
+    // Voltar e registrar são iguais atualmente, porém vão ter funções destintas no futuro
+
     function redirecionar_home() {
         window.location.href = "../Site Institucional/inicial.html"
     }
