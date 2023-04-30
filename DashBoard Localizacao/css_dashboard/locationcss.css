@@ -12,6 +12,13 @@ header{
     display: flex;
     justify-content: space-between;
 }
+.blur {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    backdrop-filter: blur(10px) brightness(0.5);
+    background-color: rgba(0, 0, 0, 0.5)
+}
 
 .logo {
     margin-top: 8px;
@@ -87,6 +94,52 @@ header{
     
 }
 
+/* Alertas */
+
+.alertas {
+    position: absolute;
+    width: 60%;
+    height: 70%;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    top: 15%;
+    left: 20%;
+    padding: 4%;
+    color: black;
+}
+.alertas table {
+    width: 100%;
+}
+td {
+    padding: 2% 0% 2% 0%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+.alertas h2 {
+    margin-bottom: 2%;
+}
+.alertas h4 {
+    margin: 0.5% 0 0.5% 1%;
+    font-weight: 500;
+}
+.alertas hr {
+    border-color: black;
+}
+.alertas button {
+    width: 15%;
+    padding: 1% 0;
+    margin: 5% 0 0 40%;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1vw;
+    color: black;
+    background: linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
+    border: none;
+    cursor: pointer;
+}
+
+/* Tabela localizacao*/
 
 .titulo-seccao {
 
