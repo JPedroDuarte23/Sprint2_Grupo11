@@ -80,7 +80,7 @@ var senhaConfirmar = input_confirma_senha.value;
     if (usuario != "") {
         div_frase.innerHTML = ``;
         
-        if (email.endsWith(".com") && email.indexOf("@")) {
+        if (email.endsWith(".com") || email.endsWith(".school") || email.endsWith(".br") && email.indexOf("@")) {
             div_frase.innerHTML = ``;
            
             if (email == emailConfirmar) {

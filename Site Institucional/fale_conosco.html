@@ -55,8 +55,9 @@
         var email = input_email.value
         var assunto = input_assunto.value
         var mensagem = input_mensagem.value
+        var validacao_email = (email.endsWith(".com") || email.endsWith(".school") || email.endsWith(".br") && email.indexOf("@"))
 	
-        if (nome != "" && mensagem != "" && assunto != "" && mensagem != "") {
+        if (nome != "" && mensagem != "" && assunto != "" && mensagem != "" && validacao_email) {
             alert(`Sua Mensagem foi salva com sucesso!  Muito Obrigado pela Colaboração`)
         } else {
             alert("Dados Invalidos")
