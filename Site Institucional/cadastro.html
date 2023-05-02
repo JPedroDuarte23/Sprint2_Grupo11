@@ -77,7 +77,7 @@ var senha = input_senha.value;
 var senhaConfirmar = input_confirma_senha.value;
 
 
-    if (usuario != "") {
+    if (usuario != "" && usuario.length <= 29) {
         div_frase.innerHTML = ``;
         
         if (email.endsWith(".com") || email.endsWith(".school") || email.endsWith(".br") && email.indexOf("@")) {
@@ -115,7 +115,7 @@ var senhaConfirmar = input_confirma_senha.value;
         "@" no e-mail</b>.`;
         }
     }   else    {
-        div_frase.innerHTML = `<b style="color:red">Nome de usuário inválido</b>.`;
+        div_frase.innerHTML = `<b style="color:red">Nome de usuário inválido, limite de 30 caracteres.</b>.`;
     }
 }
 
