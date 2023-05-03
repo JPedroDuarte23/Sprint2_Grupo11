@@ -90,10 +90,12 @@ body {
     background-color: #C23A0D;
     color: white;
     border-radius: 6px;
-    padding: 4px 2px;
+    padding: 6px 3px;
     cursor: pointer;
     font-size: medium;
     border-color: #C23A0D;
+    margin-top: 15px;
+    margin-left: 15px;
 }
 
 /* Especializações */
