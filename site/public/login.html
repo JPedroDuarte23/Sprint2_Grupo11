@@ -16,7 +16,7 @@
         <div class="container">
             <h1 class="titulo"><img src="img/logo.jpg" style="width: 40%;" /></h1>
             <ul class="navbar">
-                <li><a href="index.html">Início</a></li>
+                <li><a href="inicial.html">Início</a></li>
                 <li><a href="calculadora_pg.html">Simulador</a></li>
                 <li><a href="sobre_nos.html">Sobre Nós</a></li>
                 <li><a href="fale_conosco.html">Fale Conosco</a></li>
@@ -58,6 +58,8 @@
     </div>
 </body>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </html>
 <script>
     function validar() {
@@ -65,15 +67,15 @@
         var usuario = input_usuario.value;
         var cd_empresa = input_codigo.value;
         var senha = input_senha.value;
-        
-        if ((email.indexOf("@") != -1 && (email.endsWith(".com") || email.endsWith(".school") || email.endsWith(".br"))) 
-        && senha.length > 7 && cd_empresa.length > 2) {
-           
+
+        if ((email.indexOf("@") != -1 && (email.endsWith(".com") || email.endsWith(".school") || email.endsWith(".br")))
+            && senha.length > 7 && cd_empresa.length > 2) {
+
             if (usuario != "" && usuario.length <= 29) {
 
                 if ((senha != "") && (senha.length >= 8 && senha.length <= 16)) {
-                
-                        fetch("/usuarios/autenticar", {
+
+                    fetch("/usuarios/autenticar", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -86,48 +88,61 @@
                         })
                     }).then(function (resposta) {
                         console.log("ESTOU NO THEN DO entrar()!")
-            
+
                         if (resposta.ok) {
+
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Oops...',
+                                text: 'Conta conectada com sucesso, aguarde!'
+                            });
+
                             console.log(resposta);
-            
+
                             resposta.json().then(json => {
                                 console.log(json);
                                 console.log(JSON.stringify(json));
-            
+
                                 sessionStorage.EMAIL_USUARIO = json.email;
                                 sessionStorage.NOME_USUARIO = json.nome;
                                 sessionStorage.ID_USUARIO = json.idUsuario;
-            
+
                                 setTimeout(function () {
                                     console.log('Conectado!');
                                     window.location.href = "DashBoard/home.html";
                                     /*Colocar página da calculadora!*/
                                 }, 1000); // apenas para exibir o loading
-            
+
                             });
-            
+
                         } else {
 
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Houve um erro ao tentar realizar o login!'
+                            });
+
                             console.log("Houve um erro ao tentar realizar o login!");
-            
+
                             resposta.text().then(texto => {
                                 console.error(texto);
                                 finalizarAguardar(texto);
                             });
                         }
-            
+
                     }).catch(function (erro) {
                         console.log(erro);
                     })
-            
+
                     return false;
 
-                }   else    {
+                } else {
                     alert("A senha deve conter 8-16 caracteres.")
                 }
-            }   else    {
+            } else {
                 alert("Nome de usuário inválido.");
-            }       
+            }
         } else {
             alert("Insira um e-mail válido")
         }

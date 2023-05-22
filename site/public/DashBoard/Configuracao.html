@@ -8,13 +8,14 @@
     <title>Dashboard - Configurações</title>
     <link rel="stylesheet" href="css_dashboard/style_config.css">
     <script src="https://kit.fontawesome.com/c52875e8e8.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../img/foto.jpg" type="image/x-icon">
 </head>
 
 <body class="">
     <div id="div_pop_up"></div>
     <section class="main">
         <div class="sidebar ">
-            <img src="../Site Institucional/img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
+            <img src="../img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
             <ul>
                 <li><a href="home.html" class="sidebar_active"> <i class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
                 <li><a href="location.html"><i class="fa-solid fa-location-dot fa-lg"></i>Localização</a></li>
@@ -30,7 +31,7 @@
                     <div class="icone" onclick="redirecionar_ajuda()"><i class="fa-solid fa-circle-question"></i></div>
                     <div class="user">
                         <div class="circulo"></div>
-                        <h4>Swift</h4>
+                        <h4><span id="b_usuario">Swift</span></h4>
                     </div>
                 </div>
             </header>
@@ -89,6 +90,9 @@
 </body>
 </html>
 <script>
+
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
       function Gerar_alertas() {
         div_pop_up.innerHTML = `
         <div class="blur">
@@ -133,9 +137,9 @@
         div_pop_up.innerHTML = "";
     }
     function redirecionar_home() {
-        window.location.href = "../Site Institucional/inicial.html"
+        window.location.href = "../index.html"
     }
     function redirecionar_ajuda() {
-        window.location.href = "../Site Institucional/fale_conosco.html"
+        window.location.href = "../fale_conosco.html"
     }
 </script>

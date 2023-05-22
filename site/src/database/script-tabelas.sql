@@ -15,13 +15,14 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
 nomeFantasia VARCHAR(45),
 cnpj CHAR(18)
 );
+
 INSERT INTO empresa VALUES 
  (100,'C6','123456789');
  
 CREATE TABLE usuario(
 idUsuario INT AUTO_INCREMENT,
-nome VARCHAR(45),
-email VARCHAR(45),
+nome VARCHAR(45) UNIQUE,
+email VARCHAR(45) UNIQUE,
 senha VARCHAR(16),
 fkEmpresa INT,
 CONSTRAINT fkEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa),
@@ -38,6 +39,9 @@ CONSTRAINT fkEmpresaLocal FOREIGN KEY (fkEmpresaLocal) REFERENCES empresa (idEmp
 CONSTRAINT pkCompostaLocal PRIMARY KEY (idLocal,fkEmpresaLocal)
 ) AUTO_INCREMENT = 1000;
 
+-- INSERT INTO localizacao VALUES
+-- 	(null, '04815-260', 'torre leste', '43', 100);
+
 CREATE TABLE sensor(
 idSensor INT PRIMARY KEY AUTO_INCREMENT,
 situacao INT,
@@ -47,6 +51,14 @@ CONSTRAINT chkInst CHECK (instalacao IN ('caminhão', 'câmara', 'geladeira')),
 CONSTRAINT fkLocal FOREIGN KEY (fkLocal) REFERENCES localizacao (idLocal),
 CONSTRAINT chkSituacao CHECK (situacao IN (0, 1))
 ) AUTO_INCREMENT = 5000;
+
+-- INSERT INTO sensor VALUES
+-- 	(null, 1, 'geladeira', 1000),
+--     (null, 1, 'câmara', 1000),
+--     (null, 1, 'geladeira', 1000),
+--     (null, 1, 'geladeira', 1000),
+--     (null, 0, 'câmara', 1000),
+--     (null, 1, 'câmara', 1000);
 
 CREATE TABLE historico (
 idHistorico INT AUTO_INCREMENT,
@@ -70,6 +82,14 @@ CONSTRAINT fkSensor FOREIGN KEY (fkSensor) REFERENCES Sensor(idSensor),
 CONSTRAINT pkCompostaRegi PRIMARY KEY (idRegistro,fkSensor)
 ) AUTO_INCREMENT = 50000;
 
+INSERT INTO registro VALUES 
+	-- (null, '2', '81', now(), 5000),
+    -- (null, '4', '90', now(), 5001),
+    -- (null, '2', '82', now(), 5002),
+    -- (null, '1', '88', now(), 5003),
+    -- (null, '0', '0', now(), 5004),
+    -- (null, '2', '83', now(), 5005);
+    
 
 /*
 comando para sql server - banco remoto - ambiente de produção

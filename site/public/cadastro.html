@@ -14,9 +14,9 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1 class="titulo"><img src="img/logo.jpg" style="width: 40%;"/></h1>
+            <h1 class="titulo"><img src="img/logo.jpg" style="width: 40%;" /></h1>
             <ul class="navbar">
-                <li><a href="index.html">Início</a></li>
+                <li><a href="inicial.html">Início</a></li>
                 <li><a href="calculadora_pg.html">Simulador</a></li>
                 <li><a href="sobre_nos.html">Sobre Nós</a></li>
                 <li><a href="fale_conosco.html">Fale Conosco</a></li>
@@ -29,33 +29,33 @@
     <div class="banner">
         <div class="container">
             <div class="formulario">
-                <h4 id="saudacao" >Olá, prazer!</h4>
-                    
-                    <h4>Cadastre seu usuário:</h4>
-                    <input id="input_usuario" type="usuario">
-                    <h4>Registre seu e-mail:</h4>
-                    <input id="input_email" type="email">
-                    <h4>Confirme seu e-mail:</h4>
-                    <input id="input_confirma_email" type="email">
+                <h4 id="saudacao">Olá, prazer!</h4>
 
-                    <h4>Código da empresa:</h4>
-                    <input id="input_codigo" type="codigo">
+                <h4>Cadastre seu usuário:</h4>
+                <input id="input_usuario" type="usuario">
+                <h4>Registre seu e-mail:</h4>
+                <input id="input_email" type="email">
+                <h4>Confirme seu e-mail:</h4>
+                <input id="input_confirma_email" type="email">
 
-                    <h4>Registre sua senha:</h4>
-                    <input id="input_senha" type="password">
-                    <h4>Confirme sua senha:</h4>
-                    <input id="input_confirma_senha" type="password">
-                
+                <h4>Código da empresa:</h4>
+                <input id="input_codigo" type="codigo">
+
+                <h4>Registre sua senha:</h4>
+                <input id="input_senha" type="password">
+                <h4>Confirme sua senha:</h4>
+                <input id="input_confirma_senha" type="password">
+
                 <button onclick="cadastrar()">Cadastre-se</button>
                 <div id="div_frase">
 
+                </div>
             </div>
         </div>
+
+
+
     </div>
-        
-        
-     
-</div>
 
     <div class="footer">
         <div class="container">
@@ -66,92 +66,107 @@
     </div>
 </body>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </html>
 <script>
-function cadastrar(){
-var usuario = input_usuario.value;
-var email = (input_email.value);
-var emailConfirmar = input_confirma_email.value;
-var codigo = Number(input_codigo.value);
-var senha = input_senha.value;
-var senhaConfirmar = input_confirma_senha.value;
+    function cadastrar() {
+        var usuario = input_usuario.value;
+        var email = (input_email.value);
+        var emailConfirmar = input_confirma_email.value;
+        var codigo = Number(input_codigo.value);
+        var senha = input_senha.value;
+        var senhaConfirmar = input_confirma_senha.value;
 
 
-    if (usuario != "" && usuario.length <= 29) {
-        div_frase.innerHTML = ``;
-        
-        if (email.endsWith(".com") || email.endsWith(".school") || email.endsWith(".br") && email.indexOf("@")) {
+        if (usuario != "" && usuario.length <= 29) {
             div_frase.innerHTML = ``;
-           
-            if (email == emailConfirmar) {
+
+            if (email.endsWith(".com") || email.endsWith(".school") || email.endsWith(".br") && email.indexOf("@")) {
                 div_frase.innerHTML = ``;
-                
-                if (codigo < 1000 && codigo != "") {
+
+                if (email == emailConfirmar) {
                     div_frase.innerHTML = ``;
-                    
-                    if ((senha != "") && (senha.length >= 8 && senha.length <= 16)) {
+
+                    if (codigo < 1000 && codigo != "") {
                         div_frase.innerHTML = ``;
-                        
-                        if (senha == senhaConfirmar) {
-                            
-                            fetch("/usuarios/cadastrar", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json"
-                            },
-                            body: JSON.stringify({
-                                // crie um atributo que recebe o valor recuperado aqui
-                                // Agora vá para o arquivo routes/usuario.js
-                                nomeServer: usuario,
-                                emailServer: emailConfirmar,
-                                senhaServer: senhaConfirmar,
-                                codigoServer: codigo
-                            })
-                        }).then(function (resposta) {
 
-                            console.log("resposta: ", resposta);
+                        if ((senha != "") && (senha.length >= 8 && senha.length <= 16)) {
+                            div_frase.innerHTML = ``;
 
-                            if (resposta.ok) {
+                            if (senha == senhaConfirmar) {
 
-                                setTimeout(() => {
-                                    window.location = "login.html";
-                                }, "3000") 
+                                fetch("/usuarios/cadastrar", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify({
+                                        // crie um atributo que recebe o valor recuperado aqui
+                                        // Agora vá para o arquivo routes/usuario.js
+                                        nomeServer: usuario,
+                                        emailServer: emailConfirmar,
+                                        senhaServer: senhaConfirmar,
+                                        codigoServer: codigo
+                                    })
+                                }).then(function (resposta) {
 
-                        }   else    {
+                                    console.log("resposta: ", resposta);
 
-                                throw ("Houve um erro ao tentar realizar o cadastro!");
+                                    if (resposta.ok) {
+
+                                        Swal.fire({
+                                            position: 'top-end',
+                                            icon: 'success',
+                                            title: 'Usuário cadastrado com sucesso!',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        })
+
+                                        setTimeout(() => {
+                                            window.location = "login.html";
+                                        }, "3000")
+
+                                    } else {
+                                        Swal.fire({
+                                            position: 'top-end',
+                                            icon: 'error',
+                                            title: 'Houve um erro ao tentar realizar o cadastro! verifique os campos e tente novamente.',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        })
+
+                                        throw ("Houve um erro ao tentar realizar o cadastro!");
+                                    }
+                                }).catch(function (resposta) {
+                                    console.log(`#ERRO: ${resposta}`);
+
+                                });
+
+                                return false;
                             }
-                        }).catch(function (resposta) {
-                            console.log(`#ERRO: ${resposta}`);
-                        
-                        });
-
-                        return false;
-                        }
-                    }   else    {
-                        div_frase.innerHTML = `<b style="color:red">A senha deve conter 8-16 
+                        } else {
+                            div_frase.innerHTML = `<b style="color:red">A senha deve conter 8-16 
                             caracteres.</b>`;
+                        }
+                    } else {
+                        div_frase.innerHTML = `<b style="color:red">Código de empresa inválido</b>.`;
                     }
-                }   else    {
-                    div_frase.innerHTML = `<b style="color:red">Código de empresa inválido</b>.`;
-                }
-            }   else    {
-                div_frase.innerHTML = `<b style="color:red">Dados inválidos. confirme seu 
+                } else {
+                    div_frase.innerHTML = `<b style="color:red">Dados inválidos. confirme seu 
                     e-mail novamente e verifique-se está igual</b>.`;
-            }
-        }   else    {
-        div_frase.innerHTML = `<b style="color:red">Dados inválidos. Falta ".com" ou  
+                }
+            } else {
+                div_frase.innerHTML = `<b style="color:red">Dados inválidos. Falta ".com" ou  
         "@" no e-mail</b>.`;
+            }
+        } else {
+            div_frase.innerHTML = `<b style="color:red">Nome de usuário inválido, limite de 30 caracteres.</b>.`;
         }
-    }   else    {
-        div_frase.innerHTML = `<b style="color:red">Nome de usuário inválido, limite de 30 caracteres.</b>.`;
     }
-}
 
 
 </script>
 
 
 </script>
-
-

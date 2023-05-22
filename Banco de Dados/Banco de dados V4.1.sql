@@ -10,6 +10,7 @@ cnpj CHAR(18)
 
 CREATE TABLE usuario(
 idUsuario INT AUTO_INCREMENT,
+nome VARCHAR(45),
 email VARCHAR(45),
 senha VARCHAR(16),
 fkEmpresa INT,
@@ -58,3 +59,6 @@ fkSensor INT,
 CONSTRAINT fkSensor FOREIGN KEY (fkSensor) REFERENCES Sensor(idSensor),
 CONSTRAINT pkCompostaRegi PRIMARY KEY (idRegistro,fkSensor)
 ) AUTO_INCREMENT = 50000;
+
+SELECT * FROM usuario;
+
