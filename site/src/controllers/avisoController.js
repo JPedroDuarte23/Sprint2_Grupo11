@@ -45,9 +45,9 @@ function listarPorUsuario(req, res) {
 }
 
 function pesquisarDescricao(req, res) {
-    var descricao = req.params.descricao;
+    var alertas = req.params.alertas;
 
-    avisoModel.pesquisarDescricao(descricao)
+    avisoModel.pesquisarDescricao(alertas)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -66,18 +66,18 @@ function pesquisarDescricao(req, res) {
 }
 
 function publicar(req, res) {
-    var titulo = req.body.titulo;
-    var descricao = req.body.descricao;
+    var fkSensor = req.body.fkSensor;
+    var alertas = req.body.alertas;
     var idUsuario = req.params.idUsuario;
 
-    if (titulo == undefined) {
+    if (fkSensor == undefined) {
         res.status(400).send("O título está indefinido!");
-    } else if (descricao == undefined) {
+    } else if (alertas == undefined) {
         res.status(400).send("A descrição está indefinido!");
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(titulo, descricao, idUsuario)
+        avisoModel.publicar(fkSensor, alertas, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -94,10 +94,10 @@ function publicar(req, res) {
 }
 
 function editar(req, res) {
-    var novaDescricao = req.body.descricao;
-    var idAviso = req.params.idAviso;
+    var novoAlerta = req.body.alertas;
+    var idHistorico = req.params.idHistorico;
 
-    avisoModel.editar(novaDescricao, idAviso)
+    avisoModel.editar(novoAlerta, idHistorico)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -114,9 +114,9 @@ function editar(req, res) {
 }
 
 function deletar(req, res) {
-    var idAviso = req.params.idAviso;
+    var idHistorico = req.params.idHistorico;
 
-    avisoModel.deletar(idAviso)
+    avisoModel.deletar(idHistorico)
         .then(
             function (resultado) {
                 res.json(resultado);

@@ -1,6 +1,6 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
+Você precisa executar os comandos no banco de dados para criar as tabelas,
+ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
 
 /*
 comandos para mysql - banco local - ambiente de desenvolvimento
@@ -39,8 +39,8 @@ CONSTRAINT fkEmpresaLocal FOREIGN KEY (fkEmpresaLocal) REFERENCES empresa (idEmp
 CONSTRAINT pkCompostaLocal PRIMARY KEY (idLocal,fkEmpresaLocal)
 ) AUTO_INCREMENT = 1000;
 
--- INSERT INTO localizacao VALUES
--- 	(null, '04815-260', 'torre leste', '43', 100);
+INSERT INTO localizacao VALUES
+	(null, '04815-260', 'torre leste', '43', 100);
 
 CREATE TABLE sensor(
 idSensor INT PRIMARY KEY AUTO_INCREMENT,
@@ -52,13 +52,13 @@ CONSTRAINT fkLocal FOREIGN KEY (fkLocal) REFERENCES localizacao (idLocal),
 CONSTRAINT chkSituacao CHECK (situacao IN (0, 1))
 ) AUTO_INCREMENT = 5000;
 
--- INSERT INTO sensor VALUES
--- 	(null, 1, 'geladeira', 1000),
---     (null, 1, 'câmara', 1000),
---     (null, 1, 'geladeira', 1000),
---     (null, 1, 'geladeira', 1000),
---     (null, 0, 'câmara', 1000),
---     (null, 1, 'câmara', 1000);
+INSERT INTO sensor VALUES
+	(null, 1, 'geladeira', 1000),
+    (null, 1, 'câmara', 1000),
+    (null, 1, 'geladeira', 1000),
+    (null, 1, 'geladeira', 1000),
+    (null, 0, 'câmara', 1000),
+    (null, 1, 'câmara', 1000);
 
 CREATE TABLE historico (
 idHistorico INT AUTO_INCREMENT,
@@ -83,12 +83,12 @@ CONSTRAINT pkCompostaRegi PRIMARY KEY (idRegistro,fkSensor)
 ) AUTO_INCREMENT = 50000;
 
 INSERT INTO registro VALUES 
-	-- (null, '2', '81', now(), 5000),
-    -- (null, '4', '90', now(), 5001),
-    -- (null, '2', '82', now(), 5002),
-    -- (null, '1', '88', now(), 5003),
-    -- (null, '0', '0', now(), 5004),
-    -- (null, '2', '83', now(), 5005);
+	(null, '2', '81', now(), 5000),
+    (null, '4', '90', now(), 5001),
+    (null, '2', '82', now(), 5002),
+    (null, '1', '88', now(), 5003),
+    (null, '0', '0', now(), 5004),
+    (null, '2', '83', now(), 5005);
     
 
 /*
