@@ -31,7 +31,7 @@ const serial = async (
                 // altere!
                 // CREDENCIAIS DO BANCO LOCAL - MYSQL WORKBENCH
                 host: 'localhost',
-                user: 'root',
+                user: 'aluno',
                 password: 'sptech',
                 database: 'termoguard'
             }
@@ -100,10 +100,38 @@ const serial = async (
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> você deve ter o aquario de id 1 cadastrado.
                 await poolBancoDados.execute(
-                    'INSERT INTO registro ( temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, ?, CURRENT_TIMESTAMP, ?)',
+                    'INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, now(), 5000)',
                     [dht11Umidade, dht11Temperatura]
                 );
-                console.log("valores inseridos no banco: ", + dht11Temperatura + dht11Umidade)
+                await poolBancoDados.execute(
+                    'INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, now(), 5001)',
+                    [dht11Umidade, dht11Temperatura]
+                );
+                await poolBancoDados.execute(
+                    'INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, now(), 5002)',
+                    [dht11Umidade, dht11Temperatura]
+                );
+                await poolBancoDados.execute(
+                    'INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, now(), 5003)',
+                    [dht11Umidade, dht11Temperatura]
+                );
+                await poolBancoDados.execute(
+                    'INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, now(), 5004)',
+                    [dht11Umidade, dht11Temperatura]
+                );
+                await poolBancoDados.execute(
+                    'INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, now(), 5005)',
+                    [dht11Umidade, dht11Temperatura]
+                );
+                await poolBancoDados.execute(
+                    'INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, now(), 5006)',
+                    [dht11Umidade, dht11Temperatura]
+                );
+                await poolBancoDados.execute(
+                    'INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, now(), 5007)',
+                    [dht11Umidade, dht11Temperatura]
+                );
+                console.log("valores inseridos no banco: " + dht11Temperatura + ","+ dht11Umidade)
 
             } else {
                 throw new Error('Ambiente não configurado. Verifique o arquivo "main.js" e tente novamente.');
@@ -119,10 +147,7 @@ const serial = async (
 // não altere!
 const servidor = (
     valoresDht11Umidade,
-    valoresDht11Temperatura,
-    valoresLuminosidade,
-    valoresLm35Temperatura,
-    valoresChave
+    valoresDht11Temperatura
 ) => {
     const app = express();
     app.use((request, response, next) => {
@@ -139,35 +164,18 @@ const servidor = (
     app.get('/sensores/dht11/temperatura', (_, response) => {
         return response.json(valoresDht11Temperatura);
     });
-    app.get('/sensores/luminosidade', (_, response) => {
-        return response.json(valoresLuminosidade);
-    });
-    app.get('/sensores/lm35/temperatura', (_, response) => {
-        return response.json(valoresLm35Temperatura);
-    });
-    app.get('/sensores/chave', (_, response) => {
-        return response.json(valoresChave);
-    });
 }
 
 (async () => {
     const valoresDht11Umidade = [];
     const valoresDht11Temperatura = [];
-    const valoresLuminosidade = [];
-    const valoresLm35Temperatura = [];
-    const valoresChave = [];
+
     await serial(
         valoresDht11Umidade,
-        valoresDht11Temperatura,
-        valoresLuminosidade,
-        valoresLm35Temperatura,
-        valoresChave
+        valoresDht11Temperatura
     );
     servidor(
         valoresDht11Umidade,
-        valoresDht11Temperatura,
-        valoresLuminosidade,
-        valoresLm35Temperatura,
-        valoresChave
+        valoresDht11Temperatura
     );
 })();
