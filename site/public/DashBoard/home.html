@@ -24,6 +24,9 @@
             </ul>
 
         </div>
+
+        
+
         <div class="caixa_maior">
             <header>
                 <h2>Home</h2>
@@ -39,6 +42,12 @@
 
             <div class="botao_registrar">
                 <button onclick="Gerar_pop_up()">Registrar Sensor</button>
+            </div>
+
+            <div class="alertasToatsBox" id="alertasBox">
+                <button onclick="botaoTeste(alertaVermelhoTemp)">
+                    TESTE
+                </button>
             </div>
 
             <div class="card_graphic">
@@ -104,6 +113,33 @@
 </html>
 
 <script>
+    let toastBox = document.getElementById('alertasBox'); 
+    
+    // Toast de Temperatura
+
+    let alertaVermelhoTemp = 'Alerta Vermelho - Sensor 1 Ultrapassou de 4°C'; 
+    // let alertaAmareloTemp = 'Alerta Amarelo - Sensor 2 Ultrapassou de 2,95°C'; 
+    // let alertaAzulTemp = 'Alerta Azul - Sensor 3 Está abaixo de 0,07°C'; 
+    // let alertaRoxoTemp = 'Alerta Roxo - Sensor 4 Está abaixo de 0°C'; 
+
+    // // Toast de Umidade
+
+    // let alertaVermelhoUmi = 'Alerta Vermelho - Sensor 1 Ultrapassou de UR 95%'; 
+    // let alertaAmareloUmi = 'Alerta Amarelo - Sensor 2 Ultrapassou de UR 92,85%'; 
+    // let alertaAzulUmi = 'Alerta Azul - Sensor 3 Está abaixo de UR 84%'; 
+    // let alertaRoxoUmi = 'Alerta Roxo - Sensor 4 Está abaixo de UR 80%';
+
+    function botaoTeste(msg) {
+        let toast = document.createElement('div');
+        toast.classList.add('toast');
+        toast.innerHTML = msg;
+        toastBox.appendChild(toast);
+
+        setTimeout(()=>{
+            toast.remove();
+        }, 6000);
+    }
+
     function Gerar_alertas() {
         div_pop_up.innerHTML = `
         <div class="blur">
