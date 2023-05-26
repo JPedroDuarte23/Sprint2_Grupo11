@@ -1,13 +1,4 @@
-Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
-Você precisa executar os comandos no banco de dados para criar as tabelas,
-ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql - banco local - ambiente de desenvolvimento
-*/
-
 CREATE DATABASE termoguard;
-
 USE termoguard;
 
 CREATE TABLE empresa(
@@ -86,11 +77,9 @@ INSERT INTO registro VALUES
 	(null, '2', '81', now(), 5000),
     (null, '4', '90', now(), 5001),
     (null, '2', '82', now(), 5002),
-    (null, '1', '88', now(), 5003),
-    (null, '0', '0', now(), 5004),
-    (null, '2', '83', now(), 5005);
+    (null, '1', '88', now(), 5003);
     
-
+SELECT * FROM usuario;
 /*
 comando para sql server - banco remoto - ambiente de produção
 */

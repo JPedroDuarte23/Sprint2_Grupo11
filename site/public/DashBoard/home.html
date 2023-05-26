@@ -85,24 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="especifico">
-                        <p><b>Lojas Swift - CEP<a href="https://www.google.com/maps/place/R.+Augusto+Tolle,+771+-+Santana,+S%C3%A3o+Paulo+-+SP,+02405-001/@-23.4868538,-46.6333411,17z/data=!3m1!4b1!4m6!3m5!1s0x94cef7b494373da3:0xd6b29d19cc346f86!8m2!3d-23.4868538!4d-46.6333411!16s%2Fg%2F11c2h11tcq"><button style="cursor: pointer;">02405-001</button></a></b></p>
-                        <div class="linha1">
-                            <div class="grafico">
-                                <canvas id="myChart5004"></canvas>
-                            </div>
-                            <div class="grafico">
-                                <canvas id="myChart5005"></canvas>
-                            </div>
-                        </div>
-                        <div class="linha2">
-                            <div class="grafico">
-                                <canvas id="myChart5006"></canvas>
-                            </div>
-                            <div class="grafico barra">
-                                <canvas id="myChart5007"></canvas>
-                            </div>
-                        </div>
+                
                     </div>
                 </div>
             </div>
@@ -250,10 +233,6 @@
         obterDadosGrafico(5001)
         obterDadosGrafico(5002)
         obterDadosGrafico(5003)
-        obterDadosGrafico(5004)
-        obterDadosGrafico(5005)
-        obterDadosGrafico(5006)
-        obterDadosGrafico(5007)
     }
 
     verificar_autenticacao();
@@ -376,8 +355,7 @@
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);
 
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idSensor}`)
-                    avisoCaptura.innerHTML = ""
+                    
 
 
                     if (novoRegistro[0].dtHora_grafico == dados.labels[dados.labels.length - 1]) {
