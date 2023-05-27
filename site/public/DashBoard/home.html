@@ -15,7 +15,7 @@
 <body>
     <div id="div_pop_up"></div>
     <section class="main">
-        <div class="sidebar ">
+        <div id="barra_nav" class="sidebar sidebar_position">
             <img src="../img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
             <ul>
                 <li><a href="home.html" class="sidebar_active"> <i class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
@@ -160,6 +160,7 @@
             </div>
         </div>
         `
+        barra_nav.classList.remove("sidebar_position");
     }
 
     function Gerar_pop_up() {
@@ -205,9 +206,11 @@
             alert("foi");
             }
         }
+        barra_nav.classList.remove("sidebar_position");
     }
     function voltar() {
-        div_pop_up.innerHTML = ""
+        div_pop_up.innerHTML = "";
+        barra_nav.classList.add("sidebar_position");
     }
 
     // Voltar e registrar são iguais atualmente, porém vão ter funções destintas no futuro
