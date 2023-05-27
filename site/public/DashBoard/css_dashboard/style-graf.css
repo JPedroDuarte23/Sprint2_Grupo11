@@ -10,9 +10,12 @@ body {
     width: 100%;
     height: 100vh;
 }
-html,body {
+
+html,
+body {
     height: 100%;
 }
+
 .blur {
     width: 100%;
     height: 100%;
@@ -20,6 +23,7 @@ html,body {
     backdrop-filter: blur(10px) brightness(0.5);
     background-color: rgba(0, 0, 0, 0.5)
 }
+
 /* pop up registar*/
 .pop_up {
     position: absolute;
@@ -67,6 +71,7 @@ html,body {
     border: none;
     cursor: pointer;
 }
+
 .alertas {
     position: absolute;
     width: 60%;
@@ -78,25 +83,31 @@ html,body {
     padding: 4%;
     color: black;
 }
+
 .alertas table {
     width: 100%;
 }
+
 td {
     padding: 2% 0% 2% 0%;
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid black;
 }
+
 .alertas h2 {
     margin-bottom: 2%;
 }
+
 .alertas h4 {
     margin: 0.5% 0 0.5% 1%;
     font-weight: 500;
 }
+
 .alertas hr {
     border-color: black;
 }
+
 .alertas button {
     width: 15%;
     padding: 1% 0;
@@ -109,11 +120,12 @@ td {
     border: none;
     cursor: pointer;
 }
+
 /* barra lateral */
 .logomarca:hover {
     cursor: pointer;
-  }
-  
+}
+
 .main {
     display: flex;
     flex-wrap: wrap;
@@ -121,36 +133,42 @@ td {
     width: 100%;
     justify-content: space-between;
 }
+
 .sidebar {
+    display: flex;
+    flex-direction: column;
     width: 15%;
     height: 100%;
     background-color: #f3f3f3;
 }
+
 .sidebar .logomarca {
     width: 70%;
     margin: 10% 10% 10% 15%;
 }
+
 .sidebar hr {
     margin: 0 5%;
 }
+
 .sidebar a {
-    display: block;
+    display: flex;
+    align-items: center;
     text-decoration: none;
     margin: 5% 0% 10% 0%;
     color: #7a7a7a;
-    padding: 8%  0 8% 10%;
+    padding: 8% 0 8% 10%;
     font-size: 1.2vw;
-    display: flex;
-    align-items: center;
     height: 50%;
 }
+
 .sidebar.dark_mode a {
-    color:white;
+    color: white;
 }
 
 .sidebar i {
-        width: 10%;
-        margin: 4% 6% 4% 10%;
+    width: 10%;
+    margin: 4% 6% 4% 10%;
 }
 
 .sidebar a:hover {
@@ -158,6 +176,20 @@ td {
     color: black;
     border-radius: 0px 4px 4px 0px;
     box-shadow: inset 0 4px 13px -7px rgba(0, 0, 0, 0.3), inset 0 -3px 13px -7px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar #saida {
+    align-self: center;
+    color: #000000;
+    padding: 0;
+    height: auto;
+    margin-top: auto;
+}
+
+.sidebar #saida:hover {
+    background-color: #f3f3f3;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /* barra de navegação */
@@ -172,14 +204,16 @@ td {
 header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between  ;
+    justify-content: space-between;
     height: 40%;
     width: 100%;
     margin: 1% 0 3%;
 }
+
 header h2 {
     margin-top: 1%;
 }
+
 .lateral_icones {
     width: 25%;
     height: 100%;
@@ -190,10 +224,12 @@ header h2 {
     margin-top: 0.5%;
 
 }
+
 .lateral_icones h4 {
     font-weight: normal;
     font-size: 1.1vw;
 }
+
 .lateral_icones .icone {
     width: 20%;
     height: 85%;
@@ -204,15 +240,18 @@ header h2 {
     justify-content: center;
     align-items: center;
 }
+
 .icone i {
     cursor: pointer;
-    background: -webkit-linear-gradient(90deg, rgba(95,204,229,1) 0%, rgba(173,230,247,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .icone:hover {
     cursor: pointer;
 }
+
 .user {
     display: flex;
     width: 100%;
@@ -220,6 +259,7 @@ header h2 {
     height: 50%;
     margin: 1% 0 0 4%;
 }
+
 .lateral_icones .circulo {
     width: 35px;
     height: 35px;
@@ -278,7 +318,7 @@ header h2 {
 }
 
 @keyframes moveleft {
-    100%{
+    100% {
         transform: translateX(0);
     }
 }
@@ -295,7 +335,7 @@ header h2 {
 }
 
 @keyframes anim {
-    100%{
+    100% {
         width: 0;
     }
 }
@@ -309,6 +349,7 @@ header h2 {
     min-height: 95%;
     margin-left: 2%;
 }
+
 .informarcoes {
     display: flex;
     padding-top: 2%;
@@ -403,7 +444,8 @@ header h2 {
     border-radius: 5px;
 }
 
-.linha1,.linha2 {
+.linha1,
+.linha2 {
     width: 80%;
     gap: 5%;
     border: 2px solid black;

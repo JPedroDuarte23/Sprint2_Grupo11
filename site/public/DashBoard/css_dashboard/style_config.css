@@ -10,9 +10,12 @@ body {
     width: 100%;
     height: 100vh;
 }
-html,body {
+
+html,
+body {
     height: 100%;
 }
+
 .blur {
     width: 100%;
     height: 100%;
@@ -20,11 +23,12 @@ html,body {
     backdrop-filter: blur(10px) brightness(0.5);
     background-color: rgba(0, 0, 0, 0.5)
 }
+
 /* barra lateral */
 .logomarca:hover {
     cursor: pointer;
-  }
-  
+}
+
 .main {
     display: flex;
     flex-wrap: wrap;
@@ -32,36 +36,43 @@ html,body {
     width: 100%;
     justify-content: space-between;
 }
+
 .sidebar {
+    display: flex;
+    flex-direction: column;
     width: 15%;
     height: 100%;
     background-color: #f3f3f3;
 }
+
 .sidebar .logomarca {
     width: 70%;
     margin: 10% 10% 10% 15%;
 }
+
 .sidebar hr {
     margin: 0 5%;
 }
+
 .sidebar a {
     display: block;
     text-decoration: none;
     margin: 5% 0% 10% 0%;
     color: #7a7a7a;
-    padding: 8%  0 8% 10%;
+    padding: 8% 0 8% 10%;
     font-size: 1.2vw;
     display: flex;
     align-items: center;
     height: 50%;
 }
+
 .sidebar.dark_mode a {
-    color:white;
+    color: white;
 }
 
 .sidebar i {
-        width: 10%;
-        margin: 4% 6% 4% 10%;
+    width: 10%;
+    margin: 4% 6% 4% 10%;
 }
 
 .sidebar a:hover {
@@ -69,6 +80,20 @@ html,body {
     color: black;
     border-radius: 0px 4px 4px 0px;
     box-shadow: inset 0 4px 13px -7px rgba(0, 0, 0, 0.3), inset 0 -3px 13px -7px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar #saida {
+    align-self: center;
+    color: #000000;
+    padding: 0;
+    height: auto;
+    margin-top: auto;
+}
+
+.sidebar #saida:hover {
+    background-color: #f3f3f3;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /* barra de navegação */
@@ -83,14 +108,16 @@ html,body {
 header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between  ;
+    justify-content: space-between;
     height: 40%;
     width: 100%;
     margin: 1% 0 3%;
 }
+
 header h2 {
     margin-top: 1%;
 }
+
 .lateral_icones {
     width: 25%;
     height: 100%;
@@ -101,10 +128,12 @@ header h2 {
     margin-top: 0.5%;
 
 }
+
 .lateral_icones h4 {
     font-weight: normal;
     font-size: 1.1vw;
 }
+
 .lateral_icones .icone {
     width: 20%;
     height: 85%;
@@ -115,15 +144,18 @@ header h2 {
     justify-content: center;
     align-items: center;
 }
+
 .icone i {
     cursor: pointer;
-    background: -webkit-linear-gradient(90deg, rgba(95,204,229,1) 0%, rgba(173,230,247,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .icone:hover {
     cursor: pointer;
 }
+
 .user {
     display: flex;
     width: 100%;
@@ -131,6 +163,7 @@ header h2 {
     height: 50%;
     margin: 1% 0 0 4%;
 }
+
 .lateral_icones .circulo {
     width: 35px;
     height: 35px;
@@ -152,25 +185,31 @@ header h2 {
     padding: 4%;
     color: black;
 }
+
 .alertas table {
     width: 100%;
 }
+
 td {
     padding: 2% 0% 2% 0%;
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid black;
 }
+
 .alertas h2 {
     margin-bottom: 2%;
 }
+
 .alertas h4 {
     margin: 0.5% 0 0.5% 1%;
     font-weight: 500;
 }
+
 .alertas hr {
     border-color: black;
 }
+
 .alertas button {
     width: 15%;
     padding: 1% 0;
@@ -194,18 +233,20 @@ td {
     min-height: 95%;
     margin-left: 2%;
 }
+
 .lista_config .alertas_lista {
     width: 100%;
     height: auto;
     border-radius: 5px;
     margin-bottom: 3%;
-    border:2px solid black;
+    border: 2px solid black;
     padding-bottom: 1%;
     display: block;
 }
+
 .alertas_lista h3 {
     padding: 1% 0 1% 3%;
-    background: linear-gradient(90deg, rgba(95,204,229,1) 0%, rgba(173,230,247,1) 100%);
+    background: linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
     border-radius: 5px 5px 0 0;
 }
 
@@ -213,6 +254,7 @@ td {
     margin: 2% 0 3% 3%;
     font-weight: 500;
 }
+
 .alertas_lista h5 {
     margin: 2% 0 2% 10%;
     font-weight: 500;
@@ -221,27 +263,28 @@ td {
 
 .fechamento {
     width: 100%;
-    border:1px solid black;
+    border: 1px solid black;
 }
 
-.hr_maior{
+.hr_maior {
     width: 100%;
-    border:none;
+    border: none;
     height: 1.5px;
     background-color: black;
 }
 
 .hr_menor {
     width: 90%;
-    margin-left:10%;
-    border:none;
+    margin-left: 10%;
+    border: none;
     height: 1px;
     background-color: black;
 }
+
 .hr_menor_2 {
     width: 80%;
-    margin-left:20%;
-    border:none;
+    margin-left: 20%;
+    border: none;
     height: 1px;
     background-color: black;
 }
@@ -251,28 +294,33 @@ td {
     height: auto;
     display: block;
     border-radius: 8px;
-    border:2px solid black;
+    border: 2px solid black;
 }
+
 .cores_unidades h3 {
     padding: 1% 0 1% 3%;
-    background: linear-gradient(90deg, rgba(95,204,229,1) 0%, rgba(173,230,247,1) 100%);
+    background: linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
     border-radius: 5px 5px 0 0;
 }
+
 .cores_unidades h4 {
     margin: 2% 0 2% 3%;
     font-weight: 500;
 }
+
 .cores_unidades h5 {
     margin: 2% 0 2% 10%;
     font-weight: 500;
     font-size: 1.1vw;
 }
+
 .cores_unidades h6 {
 
     font-size: 1vw;
     font-weight: normal;
     width: 20%;
 }
+
 .cores_unidades h5.txt {
     margin-bottom: 4%;
 }
@@ -283,6 +331,7 @@ td {
     justify-content: space-between;
     margin: 2% 2% 2% 20%;
 }
+
 .linha button {
     height: 30%;
     width: 5%;
@@ -290,6 +339,7 @@ td {
     padding: 0% 1% 0 1%;
 
 }
+
 .fechamento {
     width: 100%;
 }
@@ -298,13 +348,16 @@ td {
     background-color: black;
     color: white;
 }
+
 .sidebar.dark_mode a {
-    color:#7a7a7a;
+    color: #7a7a7a;
 }
+
 .sidebar.dark_mode a:hover {
     background-color: #d65b31;
     color: white;
 }
+
 .icone.dark_mode {
     background-color: #252525;
 }
@@ -314,9 +367,13 @@ td {
     background-color: #1f1919;
     border-color: #252525;
 }
-.alertas.dark_mode .hr_maior , .hr_menor, .hr_menor_2{
+
+.alertas.dark_mode .hr_maior,
+.hr_menor,
+.hr_menor_2 {
     background-color: #252525;
 }
+
 .alertas.dark_mode h3 {
     background: linear-gradient(90deg, #D47C5E 0%, #e4cd4a 100%);
 }
@@ -325,13 +382,17 @@ td {
     background-color: #1f1919;
     border-color: #252525;
 }
-.cores_unidades.dark_mode .hr_maior , .hr_menor, .hr_menor_2{
+
+.cores_unidades.dark_mode .hr_maior,
+.hr_menor,
+.hr_menor_2 {
     background-color: #252525;
 }
 
 .cores_unidades.dark_mode h3 {
     background: linear-gradient(90deg, #D47C5E 0%, #e4cd4a 100%);
 }
+
 .icone.dark_mode i {
     background: -webkit-linear-gradient(90deg, #D47C5E 0%, #e4cd4a 100%);
     -webkit-background-clip: text;
