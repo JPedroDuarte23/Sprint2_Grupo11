@@ -135,11 +135,13 @@ td {
 }
 
 .sidebar {
+    position: fixed;
     display: flex;
     flex-direction: column;
     width: 15%;
     height: 100%;
     background-color: #f3f3f3;
+    border-right: #000000 solid;
 }
 
 .sidebar .logomarca {
@@ -156,7 +158,7 @@ td {
     align-items: center;
     text-decoration: none;
     margin: 5% 0% 10% 0%;
-    color: #7a7a7a;
+    color: #c43c10;
     padding: 8% 0 8% 10%;
     font-size: 1.2vw;
     height: 50%;
@@ -197,17 +199,18 @@ td {
 .caixa_maior {
     display: flex;
     flex-direction: column;
-    width: 83%;
+    width: 84%;
     height: auto;
+    align-items: center;
+    margin-left: 15%;
 }
 
 header {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     height: 40%;
     width: 100%;
-    margin: 1% 0 3%;
+    margin: 1% 0 3% 2%;
 }
 
 header h2 {
@@ -218,10 +221,10 @@ header h2 {
     width: 25%;
     height: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-top: 0.5%;
+    gap: 4%;
 
 }
 
@@ -232,8 +235,7 @@ header h2 {
 
 .lateral_icones .icone {
     width: 20%;
-    height: 85%;
-    margin-left: 5%;
+    height: 6vh;
     background-color: #7a7a7a;
     border-radius: 10px;
     display: flex;
@@ -255,9 +257,8 @@ header h2 {
 .user {
     display: flex;
     width: 100%;
+    justify-content: center;
     align-items: center;
-    height: 50%;
-    margin: 1% 0 0 4%;
 }
 
 .lateral_icones .circulo {
@@ -271,7 +272,7 @@ header h2 {
 /* botão registrar*/
 .botao_registrar {
     display: flex;
-    flex-direction: row;
+    align-self: normal;
     justify-content: right;
     padding: 2% 5% 2% 0%;
 }
@@ -358,8 +359,6 @@ header h2 {
     justify-content: space-evenly;
     align-items: center;
     height: auto;
-    border: 2px solid black;
-    border-radius: 5px;
 }
 
 .alertas_dia {
@@ -370,32 +369,29 @@ header h2 {
     padding: 2%;
     width: 20vw;
     height: 10vh;
-    background-color: #7a7a7a;
-    border: solid;
+    background: linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
+    box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
     border-radius: 12px;
 }
 
 .alertas_dia span {
-    font-size: 10vh;
-    height: 15vh;
+    font-size: 3rem;
 }
 
 .sensor_fun {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 7px;
     padding: 2%;
     width: 20vw;
     height: 10vh;
-    background-color: #7a7a7a;
-    border: solid;
+    background: linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
+    box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
     border-radius: 12px;
 }
 
 .sensor_fun span {
-    font-size: 9vh;
-    height: 13vh;
+    font-size: 3rem;
 }
 
 .locais {
@@ -406,24 +402,21 @@ header h2 {
     padding: 2%;
     width: 20vw;
     height: 10vh;
-    background-color: #7a7a7a;
-    border: solid;
+    background: linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
+    box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
     border-radius: 12px;
 }
 
 .locais span {
-    font-size: 10vh;
-    height: 15vh;
+    font-size: 3rem;
 }
 
-.graphics {
-    display: flex;
-    flex-direction: column;
+#texto {
+    font-size: larger;
+}
+
+.info_space {
     padding: 2%;
-    gap: 15px;
-    height: auto;
-    border: 2px solid black;
-    border-radius: 5px;
 }
 
 .gerais {
@@ -433,6 +426,7 @@ header h2 {
     height: auto;
     border: 2px solid black;
     border-radius: 5px;
+    box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
 }
 
 .especifico {
