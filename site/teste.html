@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function converterTemperatura() {
+      var temperaturaCelsius = parseFloat(document.getElementById("temperatura").innerHTML);
+      var temperaturaFahrenheit = (temperaturaCelsius * 9/5) + 32;
+      document.getElementById("temperatura").innerHTML = temperaturaFahrenheit.toFixed(2) + "°F";
+    }
+  </script>
+</head>
+<body>
+  <h2>Temperatura: <span id="temperatura">25</span>°C</h2>
+  <button onclick="converterTemperatura()">Fº</button>
+</body>
+</html>
