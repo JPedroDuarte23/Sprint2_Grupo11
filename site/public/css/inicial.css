@@ -34,7 +34,6 @@ body {
 .header .container {
     justify-content: space-between;
     display: flex;
-    flex-direction: row;
 }
 
 .titulo {
@@ -60,7 +59,6 @@ body {
 .banner {
     background-image: url('../img/quemsomos_frigocopa_frigorifico_carnes2-1\ 1.png');
     background-size: cover;
-    margin-bottom: 50px;
     padding-top: 150px;
     padding-bottom: 100px;
 }
@@ -102,11 +100,10 @@ body {
 
 .social {
     background-color: #e2b7a8;
-    flex-direction: row;
     text-align: center;
     color: black;
-    margin-bottom: 80px;
     padding: 30px 300px 30px 0px;
+    background: linear-gradient(180deg, rgba(226,183,168,1) 85%, rgba(173,230,247,1) 100%);
 }
 
 .social .container{
@@ -154,7 +151,6 @@ body {
 
 .secao_2 {
     height: 70%;
-    margin: 3% 0;
     background-color: #ade6f7;
 }
 .secao_2 .container {
