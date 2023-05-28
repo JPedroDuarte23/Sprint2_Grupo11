@@ -301,7 +301,7 @@ header h2 {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    overflow: hidden;
+    /* overflow: visible; */
     padding: 20px;
 }
 
@@ -343,6 +343,26 @@ header h2 {
         width: 0;
     }
 }
+
+.perigo-frio {
+    background-color: #0026fd;
+  }
+  
+  .perigo-quente {
+    background-color: #ff0000;
+  }
+  
+  .alerta-frio {
+    background-color: #0026fd;
+  }
+  
+  .alerta-quente {
+    background-color: #ff0000;
+  }
+  
+  .ideal {
+    background-color: #88ff00;
+  }
 
 /* conteúdo */
 .card_graphic {
