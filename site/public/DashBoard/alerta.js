@@ -3,7 +3,7 @@ var alertas = [];
 function obterdados(idSensor) {
     fetch(`/medidas/tempo-real/${idSensor}`)
         .then(resposta => {
-
+/* c */
             if (resposta.ok) {
                 resposta.json().then(resposta => {
 

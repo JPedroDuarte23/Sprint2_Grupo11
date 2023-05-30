@@ -7,7 +7,7 @@ void setup()
 {
   Serial.begin(9600);
   dht_1.begin();
-}
+}/* A */
 void loop()
 {
   /**
