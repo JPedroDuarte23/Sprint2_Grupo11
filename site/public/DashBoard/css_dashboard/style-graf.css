@@ -249,8 +249,7 @@ header h2 {
 .icone i {
     cursor: pointer;
     background: -webkit-linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    
 }
 
 .icone:hover {
