@@ -13,20 +13,68 @@
 </head>
 
 <body>
-    
-    <div id="div_pop_up"></div>
+
+    <!-- Pop Up está aqui -->
+
+    <div id="div_pop_up" class="PopUp">
+        <div class="blur">
+            <div class="alertas">
+                <h2>Alertas</h2>
+                <hr>
+                <table>
+                    <tr>
+                        <td>
+                            <h4><b style="color: red">Alerta Vermelho</b>&nbsp O sensor 1 da loja Swift - CEP 09520-180
+                                - ultrapassou 4°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 5 da loja Swift - CEP
+                                09520-180 - ultrapassou 92,5% UR</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4><b style="color: purple">Alerta Roxo</b>&nbsp O sensor 7 do frigorifico Bordon - CEP
+                                05120-020 - atingiu uma temperatura abaixo de 0°C
+                            </h4>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 9 da loja Swift - CEP
+                                02405-001 - ultrapassou 92,5% UR</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4><b style="color: blue">Alerta Azul</b>&nbsp O sensor 2 da loja Swift - CEP 05351-000 -
+                                atingiu uma UR de 84%</h4>
+                        </td>
+                    </tr>
+                </table>
+                <button onclick="voltar()">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop Up termina aqui -->
+
     <section class="main">
         <div id="barra_nav" class="sidebar sidebar_position">
             <img src="../img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
             <ul>
-                <li><a href="home.html" class="sidebar_active"> <i class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
+                <li><a href="home.html" class="sidebar_active"> <i
+                            class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
                 <li><a href="location.html"><i class="fa-solid fa-location-dot fa-lg"></i>Localização</a></li>
                 <li><a href="Configuracao.html"><i class="fa-solid fa-gear fa-lg"></i>Configurações</a></li>
             </ul>
-            <a href="../login.html" id="saida"><img src="../img/logout.png"> SAIR</a>
+            <a href="../login.html" id="saida" onclick="botaoDeslogar()"><img src="../img/logout.png"> SAIR</a>
         </div>
 
-        
+
 
         <div class="caixa_maior">
             <header>
@@ -39,16 +87,13 @@
                         <h4><span id="b_usuario">Swift</span></h4>
                     </div>
                 </div>
-                
             </header>
 
-            <div class="botao_registrar">
-                <button onclick="Gerar_pop_up()">Registrar Sensor</button>
-            </div>
+            <!-- Div botao excluido aqui -->
 
             <div class="alertasToatsBox" id="alertasBox">
                 <div class="toast" id="alerta"></div>
-            </div> 
+            </div>
 
             <div class="card_graphic">
                 <div class="info_space">
@@ -88,19 +133,20 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
-    
+
 </body>
+
 </html>
 <script src="alerta.js"></script>
 
 <script>
-    let toastBox = document.getElementById('alertasBox'); 
-    
+    let toastBox = document.getElementById('alertasBox');
+
     // Toast de Temperatura
 
-    let alertaVermelhoTemp = 'Alerta Vermelho - Sensor 1 Ultrapassou de 4°C'; 
+    let alertaVermelhoTemp = 'Alerta Vermelho - Sensor 1 Ultrapassou de 4°C';
     // let alertaAmareloTemp = 'Alerta Amarelo - Sensor 2 Ultrapassou de 2,95°C'; 
     // let alertaAzulTemp = 'Alerta Azul - Sensor 3 Está abaixo de 0,07°C'; 
     // let alertaRoxoTemp = 'Alerta Roxo - Sensor 4 Está abaixo de 0°C'; 
@@ -120,100 +166,22 @@
         toast.innerHTML = msg;
         toastBox.appendChild(toast);
 
-        setTimeout(()=>{
+        setTimeout(() => {
             toast.remove();
         }, 6000);
     }
 
     function Gerar_alertas() {
-        div_pop_up.innerHTML = `
-        <div class="blur">
-            <div class="alertas">
-                <h2>Alertas</h2>
-                <hr>
-                <table>
-                        <tr>
-                            <td>
-                                <h4><b style="color: red">Alerta Vermelho</b>&nbsp O sensor 1 da loja Swift - CEP 09520-180 - ultrapassou 4°C</h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 5 da loja Swift - CEP 09520-180 - ultrapassou 92,5% UR</h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><b style="color: purple">Alerta Roxo</b>&nbsp O sensor 7 do frigorifico Bordon - CEP 05120-020 - atingiu uma temperatura abaixo de 0°C
-                                </h4>
-                            </td>
-                        </tr>
+        div_pop_up.style.display = "flex";
 
-                        <tr>
-                            <td>
-                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 9 da loja Swift - CEP 02405-001 - ultrapassou 92,5% UR</h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><b style="color: blue">Alerta Azul</b>&nbsp O sensor 2 da loja Swift - CEP 05351-000 - atingiu uma UR de 84%</h4>
-                            </td>
-                        </tr>
-                        </table>
-                        <button onclick="voltar()">Voltar</button>
-            </div>
-        </div>
-        `
-        barra_nav.classList.remove("sidebar_position");
-    }/* a */
-
-    function Gerar_pop_up() {
-        div_pop_up.innerHTML = `
-        <div class="blur">
-            <div class="pop_up">
-                <h2>Registrar Sensor</h2>
-                <hr>
-                <h3>Localização:</h3>
-                <input type="text" id="input_localizacao">
-                <h3>Situação:</h3>
-                <input type="text" id="input_situacao">
-                <h3>Código da empresa:</h3>
-                <input type="text" id="input_codigoDeEmpresa">
-                <button onclick="voltar()">Registrar</button>
-            </div>
-        </div>
-        `
-        function voltar() {
-            var dadosDoRegistroDeSensor = {
-            localizacaoDoSensor: input_localizacao.value,
-            situacaoDoSensor: Number(input_situacao.value),
-            codigoDeEmpresaDoSensor: input_codigoDeEmpresa.value
-            }
-
-            if (dadosDoRegistroDeSensor.localizacaoDoSensor != "") {
-
-                if (dadosDoRegistroDeSensor.situacaoDoSensor >= 0 
-                && dadosDoRegistroDeSensor.situacaoDoSensor <= 1) {
-
-                    if (dadosDoRegistroDeSensor.codigoDeEmpresaDoSensor <= 999 && 
-                    dadosDoRegistroDeSensor.codigoDeEmpresaDoSensor >= 100)   {
-                        /* Colocar sweeateralert2 */
-                    }   else    {
-                    alert("foi3");
-                    }
-
-                }   else    {
-                alert("foi2");
-                }
-
-            }   else    {
-            alert("foi");
-            }
-        }
         barra_nav.classList.remove("sidebar_position");
     }
+    
+    /* Botão Excluido aqui */
+
     function voltar() {
-        div_pop_up.innerHTML = "";
+        div_pop_up.style.display = "none";
+        
         barra_nav.classList.add("sidebar_position");
     }
 
@@ -226,8 +194,11 @@
         window.location.href = "../fale_conosco.html"
     }
 
-    
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function botaoDeslogar() {
+        sessionStorage.removeItem("NOME_USUARIO");
+    }
 
     function contarlocais() {
         fetch("/usuarios/contar_locais", {
@@ -271,7 +242,7 @@
         obterDadosGrafico(5003)
     }
 
-    
+
 
 
     // O gráfico é construído com três funções:
@@ -327,7 +298,7 @@
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
-                
+
             },
             {
                 label: 'Temperatura',
@@ -370,7 +341,7 @@
             document.getElementById(`myChart${idSensor}`),
             config
         );
-            setTimeout(() => plotarGrafico(resposta, idSensor), 2000);
+        setTimeout(() => plotarGrafico(resposta, idSensor), 2000);
     }
 
     // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
@@ -428,10 +399,10 @@
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
-            setTimeout(() => plotarGrafico(novoRegistro, idSensor), 2000);
+        setTimeout(() => plotarGrafico(novoRegistro, idSensor), 2000);
     }
 
-    
+
 </script>
 
 <!-- Transformar Celsius para Fahrenheit -->

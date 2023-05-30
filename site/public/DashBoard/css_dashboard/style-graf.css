@@ -25,6 +25,10 @@ body {
 }
 
 /* pop up registar*/
+.PopUp {
+    display: none;
+}
+
 .pop_up {
     position: absolute;
     width: 60%;
@@ -86,6 +90,7 @@ body {
 
 .alertas table {
     width: 100%;
+
 }
 
 td {
@@ -269,26 +274,6 @@ header h2 {
     border-radius: 100%;
     background: linear-gradient(155deg, #D47C5E 0%, #ADD8EF 80%);
     margin: 0% 10% 0% 4%;
-}
-
-/* botão registrar*/
-.botao_registrar {
-    display: flex;
-    align-self: normal;
-    justify-content: right;
-    padding: 2% 5% 2% 0%;
-}
-
-.botao_registrar button {
-    width: 15%;
-    padding: 1% 0;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 1.1vw;
-    color: black;
-    background: linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
-    border: none;
-    cursor: pointer;
 }
 
 /* Alerta Toast */
