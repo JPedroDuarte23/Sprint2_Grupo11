@@ -22,7 +22,7 @@ var mySqlConfig = {
     host: "localhost",
     database: "termoguard",
     user: "root",
-    password: "maxsteel08",
+    password: "sptech",
 };
 
 function executar(instrucao) {
