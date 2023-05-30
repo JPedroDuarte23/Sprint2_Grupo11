@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gráficos</title>
+    <script src="https://kit.fontawesome.com/c52875e8e8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css_dashboard/style-graf.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" href="../img/foto.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="div_pop_up"></div>
+    <section class="main">
+        <div id="barra_nav" class="sidebar sidebar_position">
+            <img src="../img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
+            <ul>
+                <li><a href="home.html" class="sidebar_active"> <i class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
+                <li><a href="location.html"><i class="fa-solid fa-location-dot fa-lg"></i>Localização</a></li>
+                <li><a href="Configuracao.html"><i class="fa-solid fa-gear fa-lg"></i>Configurações</a></li>
+            </ul>
+            <a href="../login.html" id="saida"><img src="../img/logout.png"> SAIR</a>
+        </div>
+
+
+
+        <div class="caixa_maior">
+            <header>
+                <h2>Home</h2>
+                <div class="lateral_icones">
+                    <div class="icone" onclick="Gerar_alertas()"><i class="fa-solid fa-bell"></i></div>
+                    <div class="icone " onclick="redirecionar_ajuda()"><i class="fa-solid fa-circle-question"></i></div>
+                    <div class="user">
+                        <div class="circulo"></div>
+                        <h4><span id="b_usuario">Swift</span></h4>
+                    </div>
+                </div>
+
+            </header>
+
+            <div class="botao_registrar">
+                <button onclick="Gerar_pop_up()">Registrar Sensor</button>
+            </div>
+
+            <div class="alertasToatsBox" id="alertasBox">
+                <!-- <button onclick="botaoTeste(alertaVermelhoTemp)">
+                    TESTE
+                </button> -->
+            </div> 
+
+            <div class="card_graphic">
+                <div class="info_space">
+                    <div class="informarcoes">
+                        <div class="alertas_dia">
+                            <span>0</span>
+                            <span id="texto">Alertas no Dia</span>
+                        </div>
+                        <div class="sensor_fun">
+                            <span>10/10</span>
+                            <span id="texto">Sensores em Funcionamento</span>
+                        </div>
+                        <div class="locais">
+                            <span>5</span>
+                            <span id="texto">Locais Cadastrados</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gerais">
+                    <p><b>Grafícos gerais</b></p>
+                    <div class="linha1">
+                        <div class="grafico">
+                            <canvas id="myChart5000"></canvas>
+                        </div>
+                        <div class="grafico">
+                            <canvas id="myChart5001"></canvas>
+                        </div>
+                    </div>
+                    <div class="linha2">
+                        <div class="grafico">
+                            <canvas id="myChart5002"></canvas>
+                        </div>
+                        <div class="grafico barra">
+                            <canvas id="myChart5003"></canvas>
+                        </div>
+                        <div class="linha2">
+                            <div class="grafico">
+                                <canvas id="myChart5004"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
+
+<script>
+    let toastBox = document.getElementById('alertasBox'); 
+
+    // Toast de Temperatura
+
+    let alertaVermelhoTemp = 'Alerta Vermelho - Sensor 1 Ultrapassou de 4°C'; 
+    // let alertaAmareloTemp = 'Alerta Amarelo - Sensor 2 Ultrapassou de 2,95°C'; 
+    // let alertaAzulTemp = 'Alerta Azul - Sensor 3 Está abaixo de 0,07°C'; 
+    // let alertaRoxoTemp = 'Alerta Roxo - Sensor 4 Está abaixo de 0°C'; 
+
+    // // Toast de Umidade
+
+    // let alertaVermelhoUmi = 'Alerta Vermelho - Sensor 1 Ultrapassou de UR 95%'; 
+    // let alertaAmareloUmi = 'Alerta Amarelo - Sensor 2 Ultrapassou de UR 92,85%'; 
+    // let alertaAzulUmi = 'Alerta Azul - Sensor 3 Está abaixo de UR 84%'; 
+    // let alertaRoxoUmi = 'Alerta Roxo - Sensor 4 Está abaixo de UR 80%';
+
+
+    function botaoTeste(msg) {
+        let toast = document.createElement('div');
+        toast.classList.add('toast');
+        toast.innerHTML = msg;
+        toastBox.appendChild(toast);
+
+        setTimeout(()=>{
+            toast.remove();
+        }, 6000);
+    }
+
+    function Gerar_alertas() {
+        div_pop_up.innerHTML = `
+        <div class="blur">
+            <div class="alertas">
+                <h2>Alertas</h2>
+                <hr>
+                <table>
+                        <tr>
+                            <td>
+                                <h4><b style="color: red">Alerta Vermelho</b>&nbsp O sensor 1 da loja Swift - CEP 09520-180 - ultrapassou 4°C</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 5 da loja Swift - CEP 09520-180 - ultrapassou 92,5% UR</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b style="color: purple">Alerta Roxo</b>&nbsp O sensor 7 do frigorifico Bordon - CEP 05120-020 - atingiu uma temperatura abaixo de 0°C
+                                </h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 9 da loja Swift - CEP 02405-001 - ultrapassou 92,5% UR</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b style="color: blue">Alerta Azul</b>&nbsp O sensor 2 da loja Swift - CEP 05351-000 - atingiu uma UR de 84%</h4>
+                            </td>
+                        </tr>
+                        </table>
+                        <button onclick="voltar()">Voltar</button>
+            </div>
+        </div>
+        `
+        barra_nav.classList.remove("sidebar_position");
+    }
+
+    function Gerar_pop_up() {
+        div_pop_up.innerHTML = `
+        <div class="blur">
+            <div class="pop_up">
+                <h2>Registrar Sensor</h2>
+                <hr>
+                <h3>Localização:</h3>
+                <input type="text" id="input_localizacao">
+                <h3>Situação:</h3>
+                <input type="text" id="input_situacao">
+                <h3>Código da empresa:</h3>
+                <input type="text" id="input_codigoDeEmpresa">
+                <button onclick="voltar()">Registrar</button>
+            </div>
+        </div>
+        `
+        function voltar() {
+            var dadosDoRegistroDeSensor = {
+            localizacaoDoSensor: input_localizacao.value,
+            situacaoDoSensor: Number(input_situacao.value),
+            codigoDeEmpresaDoSensor: input_codigoDeEmpresa.value
+            }
+
+            if (dadosDoRegistroDeSensor.localizacaoDoSensor != "") {
+
+                if (dadosDoRegistroDeSensor.situacaoDoSensor >= 0 
+                && dadosDoRegistroDeSensor.situacaoDoSensor <= 1) {
+
+                    if (dadosDoRegistroDeSensor.codigoDeEmpresaDoSensor <= 999 && 
+                    dadosDoRegistroDeSensor.codigoDeEmpresaDoSensor >= 100)   {
+                        /* Colocar sweeateralert2 */
+                    }   else    {
+                    alert("foi3");
+                    }
+
+                }   else    {
+                alert("foi2");
+                }
+
+            }   else    {
+            alert("foi");
+            }
+        }
+        barra_nav.classList.remove("sidebar_position");
+    }
+    function voltar() {
+        div_pop_up.innerHTML = "";
+        barra_nav.classList.add("sidebar_position");
+    }
+
+    // Voltar e registrar são iguais atualmente, porém vão ter funções destintas no futuro
+
+    function redirecionar_home() {
+        window.location.href = "../inicial.html"
+    }
+    function redirecionar_ajuda() {
+        window.location.href = "../fale_conosco.html"
+    }
+
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    let proximaAtualizacao;
+
+    window.onload = obterDadosGraficos();
+
+    function obterDadosGraficos() {
+        obterDadosGrafico(5000)
+        obterDadosGrafico(5001)
+        obterDadosGrafico(5002)
+        obterDadosGrafico(5003)
+        obterDadosGrafico(5004)
+    }
+
+    verificar_autenticacao();
+
+
+    // O gráfico é construído com três funções:
+    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
+    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
+    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
+
+    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function obterDadosGrafico(idSensor) {
+
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/medidas/ultimas/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idSensor);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico(resposta, idSensor) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Umidade',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+
+            },
+            {
+                label: 'Temperatura',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(199, 52, 52)',
+                tension: 0.1
+            },
+            {
+                label: 'TemperaturaFah',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(50, 100, 52)',
+                tension: 0.1
+            }
+        ]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.dtHora_grafico);
+            dados.datasets[0].data.push(registro.umidade);
+            dados.datasets[1].data.push(registro.temperatura);
+            dados.datasets[2].data.push(registro.temperatura);
+
+            var temp_fah = (resposta[i]* 9/5) + 32
+
+            for (fah = 0; fah < resposta.length; fah++){
+                var registro_fah = temp_fah
+                labels.push(registro.dtHora_grafico);
+
+                dados.datasets[2].data.push(registro.temperatura);
+                console.log(registro_fah)
+            }
+        }
+
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'line',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart2 = new Chart(
+            document.getElementById(`myChart${idSensor}`),
+            config
+        );
+        let myChart = new Chart(
+            document.getElementById(`myChart${idSensor}`),
+            config
+        );
+
+
+        setTimeout(() => atualizarGrafico(idSensor, dados, myChart, myChart2), 2000);
+    }
+
+
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando a última medida inserida em tabela contendo as capturas, 
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function atualizarGrafico(idSensor, dados, myChart) {
+
+
+
+        fetch(`/medidas/tempo-real/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico:`);
+                    console.log(dados);
+
+                    let avisoCaptura = document.getElementById(`avisoCaptura${idSensor}`)
+                    avisoCaptura.innerHTML = ""
+
+
+                    if (novoRegistro[0].dtHora_grafico == dados.labels[dados.labels.length - 1]) {
+                        console.log("---------------------------------------------------------------")
+                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                        console.log("Horário do novo dado capturado:")
+                        console.log(novoRegistro[0].dtHora_grafico)
+                        console.log("Horário do último dado capturado:")
+                        console.log(dados.labels[dados.labels.length - 1])
+                        console.log("---------------------------------------------------------------")
+                    } else {
+                        // tirando e colocando valores no gráfico
+                        dados.labels.shift(); // apagar o primeiro
+                        dados.labels.push(novoRegistro[0].dtHora_grafico); // incluir um novo momento
+
+                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                        dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+
+                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                        dados.datasets[2].data.shift();  // apagar o primeiro de temperatura
+                        dados.datasets[2].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                        myChart.update();
+                        myChart2.update()
+                    }
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart, myChart2), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart, myChart2), 2000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+
+</script>
+
+
+<!-- function trasnformarFah(){
+    var temp = Number(input_temperatura.value);
+    var fah = (temp * 9/5) + 32
+    ou
+    var fah = (temp * 9/5) + 32
+    if (temperatura_escolhida == Fahrenheit){
+div_frase.innerHTML = `jogar no gráfico `
+    }
+    ou
+    mostrar direto no gráfico a temperatura em fahrenheit em mais 2 gráficos
+    
+} -->
