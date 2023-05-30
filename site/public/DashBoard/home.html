@@ -59,11 +59,11 @@
                             <span id="texto">Alertas no Dia</span>
                         </div>
                         <div class="sensor_fun">
-                            <span>10/10</span>
+                            <span id="sensores_funconando"></span>
                             <span id="texto">Sensores em Funcionamento</span>
                         </div>
                         <div class="locais">
-                            <span>5</span>
+                            <span id="locais_cadastrados"></span>
                             <span id="texto">Locais Cadastrados</span>
                         </div>
                     </div>
@@ -227,6 +227,37 @@
 
     
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function contarlocais() {
+        fetch("/usuarios/contar_locais", {
+            method: "get"
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then((json) => {
+                    console.log(json)
+                    locais_cadastrados.innerHTML = `${json[0].qtdlocais}`
+                })
+            }
+        })
+    }
+
+    function contarSensores() {
+        fetch("/usuarios/contar_sensores", {
+            method: "get"
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then((json) => {
+                    console.log(json)
+                    sensores_funconando.innerHTML = `${json[0].qtdsensores}`
+                })
+            }
+        })
+    }
+
+    setInterval(() => {
+        contarlocais()
+        contarSensores()
+    }, 2000)
 
     let proximaAtualizacao;
 

@@ -20,4 +20,12 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.get("/contar_locais", function (req, res) {
+    usuarioController.contar_locais(req, res);
+});
+
+router.get("/contar_sensores", function (req, res) {
+    usuarioController.contar_sensores(req, res);
+});
+
 module.exports = router;

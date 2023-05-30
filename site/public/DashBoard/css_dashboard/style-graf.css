@@ -405,6 +405,7 @@ header h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 50%;
     padding: 2%;
     width: 20vw;
     height: 10vh;

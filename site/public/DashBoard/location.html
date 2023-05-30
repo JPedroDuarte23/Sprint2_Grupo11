@@ -14,40 +14,43 @@
 <body>
     <div id="div_pop_up"></div>
     <div class="main">
-    <div class="sidebar ">
-        <img src="../img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
-        <ul>
-            <li><a href="home.html" class="sidebar_active"> <i class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
-            <li><a href="location.html"><i class="fa-solid fa-location-dot fa-lg"></i>Localização</a></li>
-            <li><a href="Configuracao.html"><i class="fa-solid fa-gear fa-lg"></i>Configurações</a></li>
-        </ul>
-        <a href="../login.html" id="saida"><img src="../img/logout.png"> SAIR</a>
-    </div>
-    <div class="caixa_maior">
-        <header>
-            <h2>Localizações</h2>
-            <div class="lateral_icones">
-                <div class="icone" onclick="Gerar_alertas()"><i class="fa-solid fa-bell"></i></div>
-                <div class="icone " onclick="redirecionar_ajuda()"><i class="fa-solid fa-circle-question"></i></div>
-                <div class="user">
-                    <div class="circulo"></div>
-                    <h4<span id="b_usuario">Swift</span></h4>
+        <div id="barra_nav" class="sidebar sidebar_position">
+            <img src="../img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
+            <ul>
+                <li><a href="home.html" class="sidebar_active"> <i
+                            class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
+                <li><a href="location.html"><i class="fa-solid fa-location-dot fa-lg"></i>Localização</a></li>
+                <li><a href="Configuracao.html"><i class="fa-solid fa-gear fa-lg"></i>Configurações</a></li>
+            </ul>
+            <a href="../login.html" id="saida"><img src="../img/logout.png"> SAIR</a>
+        </div>
+        <div class="caixa_maior">
+            <header>
+                <h2>Localizações</h2>
+                <div class="lateral_icones">
+                    <div class="icone" onclick="Gerar_alertas()"><i class="fa-solid fa-bell"></i></div>
+                    <div class="icone " onclick="redirecionar_ajuda()"><i class="fa-solid fa-circle-question"></i></div>
+                    <div class="user">
+                        <div class="circulo"></div>
+                        <h4<span id="b_usuario">Swift</span></h4>
+                    </div>
                 </div>
-            </div>
-        </header>
-        <div class="lista_config">
-            <div class="planilha">
-                <h3 class="texto_importante">Locais com sensores intalados</h3>
-                <div class="sensor1 sensores">
-                    <h2>Sensor Swift ZN</h2>
-                    <p><i class="fa-solid fa-snowflake"></i> / <a href="https://www.google.com/maps/place/R.+Augusto+Tolle,+771+-+Santana,+S%C3%A3o+Paulo+-+SP,+02405-001/@-23.4868538,-46.6333411,17z/data=!3m1!4b1!4m6!3m5!1s0x94cef7b494373da3:0xd6b29d19cc346f86!8m2!3d-23.4868538!4d-46.6333411!16s%2Fg%2F11c2h11tcq"><button>02405-001</button></a></p>
+            </header>
+            <div class="lista_config">
+                <div class="planilha">
+                    <h3 class="texto_importante">Locais com sensores intalados</h3>
+                    <div class="sensor1 sensores">
+                        <h2>Sensor Swift ZN</h2>
+                        <p><i class="fa-solid fa-snowflake"></i> / <a
+                                href="https://www.google.com/maps/place/R.+Augusto+Tolle,+771+-+Santana,+S%C3%A3o+Paulo+-+SP,+02405-001/@-23.4868538,-46.6333411,17z/data=!3m1!4b1!4m6!3m5!1s0x94cef7b494373da3:0xd6b29d19cc346f86!8m2!3d-23.4868538!4d-46.6333411!16s%2Fg%2F11c2h11tcq"><button>02405-001</button></a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </section>
+        </section>
 
-    <script src="https://kit.fontawesome.com/26785162bf.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/26785162bf.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
@@ -94,11 +97,13 @@
             </div>
         </div>
         `
+        barra_nav.classList.remove("sidebar_position");
     }
     function voltar() {
         div_pop_up.innerHTML = "";
+        barra_nav.classList.add("sidebar_position");
     }
-function redirecionar_home() {
+    function redirecionar_home() {
         window.location.href = "../index.html"
     }
     function redirecionar_ajuda() {
