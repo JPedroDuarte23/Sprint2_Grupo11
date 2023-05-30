@@ -46,9 +46,6 @@
             </div>
 
             <div class="alertasToatsBox" id="alertasBox">
-                <!-- <button onclick="botaoTeste(alertaVermelhoTemp)">
-                    TESTE
-                </button> -->
             </div> 
 
             <div class="card_graphic">
@@ -335,6 +332,7 @@
                 borderColor: 'rgb(199, 52, 52)',
                 tension: 0.1
             }]
+
         };
 
         console.log('----------------------------------------------')
@@ -368,10 +366,8 @@
             document.getElementById(`myChart${idSensor}`),
             config
         );
-
-        setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
+            setTimeout(() => plotarGrafico(resposta, idSensor), 2000);
     }
-
 
     // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
     // buscando a última medida inserida em tabela contendo as capturas, 
@@ -417,18 +413,18 @@
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => plotarGrafico(novoRegistro, idSensor), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => plotarGrafico(novoRegistro, idSensor), 2000);
             }
         })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
-
+            setTimeout(() => plotarGrafico(novoRegistro, idSensor), 2000);
     }
 
     

@@ -301,7 +301,7 @@ header h2 {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    /* overflow: visible; */
+    overflow: hidden;
     padding: 20px;
 }
 

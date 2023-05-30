@@ -20,11 +20,11 @@
     <div>
         <h1>Sensor DHT 11 - Umidade</h1>
         <section style="width:100%">
-            <canvas id="dht11Umidade"></canvas>
+            <canvas id="sensor1_umidade"></canvas>
         </section>
         <h1>Sensor DHT 11 - Temperatura</h1>
         <section style="width: 100%;">
-            <canvas id="dht11Temperatura"></canvas>
+            <canvas id="sensor1_temperatura"></canvas>
         </section>
         <h1>Sensor Luminosidade</h1>
         <section style="width: 100%;">
@@ -42,11 +42,11 @@
 
     <script>
         /* -- dht11Umidade -- */
-        var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
-        contextoDht11Umidade.canvas.width = 1000;
-        contextoDht11Umidade.canvas.height = 300;
-        var dht11Umidade = new Chart(
-            contextoDht11Umidade,
+        var contextoSensor1Umidade = document.getElementById('sensor1_umidade').getContext('2d');
+        contextoSensor1Umidade.canvas.width = 1000;
+        contextoSensor1Umidade.canvas.height = 300;
+        var sensor1Umidade = new Chart(
+            contextoSensor1Umidade,
             {
                 type: 'line',
                 data: {
@@ -82,11 +82,11 @@
             }
         );
         /* -- dht11Temperatura -- */
-        var contextoDht11Temperatura = document.getElementById('dht11Temperatura').getContext('2d');
-        contextoDht11Temperatura.canvas.width = 1000;
-        contextoDht11Temperatura.canvas.height = 300;
-        var dht11Temperatura = new Chart(
-            contextoDht11Temperatura,
+        var contextoSensor1Temperatura = document.getElementById('sensor1_temperatura').getContext('2d');
+        contextoSensor1Temperatura.canvas.width = 1000;
+        contextoSensor1Temperatura.canvas.height = 300;
+        var sensor1temperatura = new Chart(
+            contextoSensor1Temperatura,
             {
                 type: 'line',
                 data: {
@@ -273,8 +273,8 @@
         }
 
         setInterval(() => {
-            obterDados(dht11Umidade, 'dht11/umidade');
-            obterDados(dht11Temperatura, 'dht11/temperatura');
+            obterDados(sensor1_umidade, 'sensor1/umidade');
+            obterDados(sensor1_temperatura, 'sensor1/temperatura');
             obterDados(luminosidade, 'luminosidade');
             obterDados(lm35Temperatura, 'lm35/temperatura');
             obterDados(chave, 'chave');
