@@ -3,7 +3,6 @@ var alertas = [];
 function obterdados(idSensor) {
     fetch(`/medidas/tempo-real/${idSensor}`)
         .then(resposta => {
-/* c */
             if (resposta.ok) {
                 resposta.json().then(resposta => {
 
@@ -25,17 +24,17 @@ function obterdados(idSensor) {
 function alertar(resposta, idSensor) {
     var temp = resposta[0].temperatura;
 
-    console.log(idSensor === resposta[0].fk_aquario)
+    console.log(idSensor === resposta[0].fkSensor)
     
     var grauDeAviso ='';
 
 
     var limites = {
-        muito_quente: 23,
-        quente: 22,
-        ideal: 20,
-        frio: 10,
-        muito_frio: 5
+        muito_quente: 4,
+        quente: 3.78,
+        ideal: 2.34,
+        frio: 1.80,
+        muito_frio: 0
     };
 
     var classe_temperatura = 'cor-alerta';
@@ -69,7 +68,7 @@ function alertar(resposta, idSensor) {
         exibirAlerta(temp, idSensor, grauDeAviso, grauDeAvisoCor)
     }
 
-    var card;
+/*     var card;
 
     if (idSensor == 1) {
         temp_aquario_1.innerHTML = temp + "°C";
@@ -85,7 +84,7 @@ function alertar(resposta, idSensor) {
         card = card_4
     }
 
-    card.className = classe_temperatura;
+    card.className = classe_temperatura; */
 }
 
 function exibirAlerta(temp, idSensor, grauDeAviso, grauDeAvisoCor) {
@@ -124,6 +123,5 @@ function transformarEmDiv({ idSensor, temp, grauDeAviso, grauDeAvisoCor }) {
      <h3>Aquário ${idSensor} está em estado de ${grauDeAviso}!</h3>
     <small>Temperatura ${temp}.</small>   
     </div>
-    <div class="alarme-sino"></div>
     </div>`;
 }

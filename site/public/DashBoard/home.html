@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    
     <div id="div_pop_up"></div>
     <section class="main">
         <div id="barra_nav" class="sidebar sidebar_position">
@@ -46,6 +47,7 @@
             </div>
 
             <div class="alertasToatsBox" id="alertasBox">
+                <div class="toast" id="alerta"></div>
             </div> 
 
             <div class="card_graphic">
@@ -90,8 +92,8 @@
     </section>
     
 </body>
-
 </html>
+<script src="alerta.js"></script>
 
 <script>
     let toastBox = document.getElementById('alertasBox'); 
@@ -109,6 +111,8 @@
     // let alertaAmareloUmi = 'Alerta Amarelo - Sensor 2 Ultrapassou de UR 92,85%'; 
     // let alertaAzulUmi = 'Alerta Azul - Sensor 3 Está abaixo de UR 84%'; 
     // let alertaRoxoUmi = 'Alerta Roxo - Sensor 4 Está abaixo de UR 80%';
+
+    obterdados(5000)
 
     function botaoTeste(msg) {
         let toast = document.createElement('div');
@@ -267,7 +271,7 @@
         obterDadosGrafico(5003)
     }
 
-    verificar_autenticacao();
+    
 
 
     // O gráfico é construído com três funções:
