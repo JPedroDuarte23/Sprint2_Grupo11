@@ -90,7 +90,6 @@
             </header>
 
             <!-- Div botao excluido aqui -->
-
             <div class="alertasToatsBox" id="alertasBox">
                 <div class="toast" id="alerta"></div>
             </div>
@@ -139,49 +138,22 @@
 </body>
 
 </html>
+
 <script src="alerta.js"></script>
 
 <script>
-    let toastBox = document.getElementById('alertasBox');
-
-    // Toast de Temperatura
-
-    let alertaVermelhoTemp = 'Alerta Vermelho - Sensor 1 Ultrapassou de 4°C';
-    // let alertaAmareloTemp = 'Alerta Amarelo - Sensor 2 Ultrapassou de 2,95°C'; 
-    // let alertaAzulTemp = 'Alerta Azul - Sensor 3 Está abaixo de 0,07°C'; 
-    // let alertaRoxoTemp = 'Alerta Roxo - Sensor 4 Está abaixo de 0°C'; 
-
-    // // Toast de Umidade
-
-    // let alertaVermelhoUmi = 'Alerta Vermelho - Sensor 1 Ultrapassou de UR 95%'; 
-    // let alertaAmareloUmi = 'Alerta Amarelo - Sensor 2 Ultrapassou de UR 92,85%'; 
-    // let alertaAzulUmi = 'Alerta Azul - Sensor 3 Está abaixo de UR 84%'; 
-    // let alertaRoxoUmi = 'Alerta Roxo - Sensor 4 Está abaixo de UR 80%';
-
-    obterdados(5000)
-
-    function botaoTeste(msg) {
-        let toast = document.createElement('div');
-        toast.classList.add('toast');
-        toast.innerHTML = msg;
-        toastBox.appendChild(toast);
-
-        setTimeout(() => {
-            toast.remove();
-        }, 6000);
-    }
 
     function Gerar_alertas() {
         div_pop_up.style.display = "flex";
 
         barra_nav.classList.remove("sidebar_position");
     }
-    
+
     /* Botão Excluido aqui */
 
     function voltar() {
         div_pop_up.style.display = "none";
-        
+
         barra_nav.classList.add("sidebar_position");
     }
 
@@ -206,7 +178,7 @@
         }).then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then((json) => {
-                    console.log(json)
+
                     locais_cadastrados.innerHTML = `${json[0].qtdlocais}`
                 })
             }
@@ -219,7 +191,7 @@
         }).then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then((json) => {
-                    console.log(json)
+
                     sensores_funconando.innerHTML = `${json[0].qtdsensores}`
                 })
             }

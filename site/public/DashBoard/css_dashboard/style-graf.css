@@ -278,7 +278,7 @@ header h2 {
 
 /* Alerta Toast */
 
-.alertasToatsBox {
+.alertasToastsBox {
     position: absolute;
     bottom: 30px;
     right: 30px;
@@ -306,7 +306,7 @@ header h2 {
 }
 
 @keyframes moveleft {
-    100% {
+    100%{
         transform: translateX(0);
     }
 }
@@ -323,7 +323,7 @@ header h2 {
 }
 
 @keyframes anim {
-    100% {
+    100%{
         width: 0;
     }
 }
