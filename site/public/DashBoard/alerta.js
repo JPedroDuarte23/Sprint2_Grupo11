@@ -1,37 +1,46 @@
 var alertas = [];
 
-function exibirToast(msg) {
-    let toastBox = document.getElementById('alertasBox');
+// function exibirToast(msg) {
+//     
 
-    // Toast de Temperatura
-
-    // let alertaAmareloTemp = 'Alerta Amarelo - Sensor 2 Ultrapassou de 2,95°C'; 
-    // let alertaAzulTemp = 'Alerta Azul - Sensor 3 Está abaixo de 0,07°C'; 
-    // let alertaRoxoTemp = 'Alerta Roxo - Sensor 4 Está abaixo de 0°C'; 
-
-    // // Toast de Umidade
-
-    // let alertaVermelhoUmi = 'Alerta Vermelho - Sensor 1 Ultrapassou de UR 95%'; 
-    // let alertaAmareloUmi = 'Alerta Amarelo - Sensor 2 Ultrapassou de UR 92,85%'; 
-    // let alertaAzulUmi = 'Alerta Azul - Sensor 3 Está abaixo de UR 84%'; 
-    // let alertaRoxoUmi = 'Alerta Roxo - Sensor 4 Está abaixo de UR 80%';
-
-    obterdados(5000)
-    botaoTeste(toastBox, msg)
+//     obterdados(5000)
+//     botaoTeste(toastBox, msg)
 
     
-}
+// }
 
-function botaoTeste(toastBox, msg) {
+let toastBox = document.getElementById('alertasBox');
+
+//     // Toast de Temperatura
+
+//     let alertaVermelhoTemp = 'Alerta Vermelho - Sensor 2 Ultrapassou de 4°C'; 
+
+//     var msg = alertaVermelhoTemp;
+
+//     // let alertaAmareloTemp = 'Alerta Amarelo - Sensor 2 Ultrapassou de 2,95°C'; 
+//     // let alertaAzulTemp = 'Alerta Azul - Sensor 3 Está abaixo de 0,07°C'; 
+//     // let alertaRoxoTemp = 'Alerta Roxo - Sensor 4 Está abaixo de 0°C'; 
+
+//     // // Toast de Umidade
+
+//     // let alertaVermelhoUmi = 'Alerta Vermelho - Sensor 1 Ultrapassou de UR 95%'; 
+//     // let alertaAmareloUmi = 'Alerta Amarelo - Sensor 2 Ultrapassou de UR 92,85%'; 
+//     // let alertaAzulUmi = 'Alerta Azul - Sensor 3 Está abaixo de UR 84%'; 
+//     // let alertaRoxoUmi = 'Alerta Roxo - Sensor 4 Está abaixo de UR 80%';
+
+
+    function botaoTeste() {
     let toast = document.createElement('div');
     toast.classList.add('toast');
-    toast.innerHTML = msg;
-    toastBox.appendChild(toast)
+    toast.innerHTML = 'teste';
+    alertasBox.appendChild(toast)
 
     setTimeout(() => {
-        toast.remove()
+        alertasBox.innerHTML = "";
     }, 6000);
 }
+
+
 
 function obterdados(idSensor) {
     fetch(`/medidas/tempo-real/${idSensor}`)
@@ -57,11 +66,11 @@ function obterdados(idSensor) {
 function alertar(resposta, idSensor) {
     
     var temp = resposta[0].temperatura;
-    let msg = ""
+    // let msg = ""
 
-    if(temp >= 4) {
-        msg = "Muito quente"
-        exibirToast(msg)
+    // if(temp >= 4) {
+        // msg = "Muito quente"
+        // exibirToast(msg)
     }
 
     // console.log(idSensor === resposta[0].fkSensor)
@@ -125,7 +134,7 @@ function alertar(resposta, idSensor) {
     }
 
     card.className = classe_temperatura; */
-}
+// }
 
 function exibirAlerta(temp, idSensor, grauDeAviso, grauDeAvisoCor) {
     var indice = alertas.findIndex(item => item.idSensor == idSensor);
