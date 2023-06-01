@@ -37,8 +37,8 @@ const serial = async (
                 // altere!
                 // CREDENCIAIS DO BANCO LOCAL - MYSQL WORKBENCH
                 host: 'localhost',
-                user: 'aluno',
-                password: 'sptechxc',
+                user: 'Rian',
+                password: 'Rian2911',
                 database: 'termoguard'
             }
         ).promise();
@@ -131,14 +131,6 @@ const serial = async (
                 await poolBancoDados.execute(
                     'INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, now(), 5003)',
                     [sensor4_umidade, sensor4_temperatura]
-                );
-                await poolBancoDados.execute(
-                    'INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, now(), 5004)',
-                    [sensor1_umidade, sensor1_temperatura]
-                );
-                await poolBancoDados.execute(
-                    'INSERT INTO registro (temperatura, umidade, dtHora, fkSensor) VALUES (?, ?, now(), 5005)',
-                    [sensor1_umidade, sensor1_temperatura]
                 );
                 console.log("valores inseridos no banco: " + sensor1_temperatura + ","+ sensor1_umidade +
                 sensor2_temperatura + ","+ sensor2_umidade +
