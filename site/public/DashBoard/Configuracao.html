@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../img/foto.jpg" type="image/x-icon">
 </head>
 
-<body class="">
+<body class="" id="corpo">
     <div id="div_pop_up"></div>
     <section class="main">
         <div id="barra_nav" class="sidebar sidebar_position">
@@ -135,6 +135,8 @@
         </div>
         `
         barra_nav.classList.remove("sidebar_position");
+
+        corpo.style.overflow = "hidden";
     }
 
 
@@ -142,6 +144,7 @@
     function voltar() {
         div_pop_up.innerHTML = "";
         barra_nav.classList.add("sidebar_position");
+        corpo.style.overflow = "auto";
     }
     function redirecionar_home() {
         window.location.href = "../index.html"

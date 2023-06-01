@@ -27,6 +27,7 @@ body {
 /* pop up registar*/
 .PopUp {
     display: none;
+    position: absolute;
 }
 
 .pop_up {

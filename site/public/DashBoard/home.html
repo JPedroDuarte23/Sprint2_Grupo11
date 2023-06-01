@@ -12,55 +12,12 @@
     <link rel="shortcut icon" href="../img/foto.jpg" type="image/x-icon">
 </head>
 
-<body onload="botaoTeste()">
+<body onload="botaoTeste()" id="corpo">
 
-    <!-- Pop Up está aqui -->
 
-    <div id="div_pop_up" class="PopUp">
-        <div class="blur">
-            <div class="alertas">
-                <h2>Alertas</h2>
-                <hr>
-                <table>
-                    <tr>
-                        <td>
-                            <h4><b style="color: red">Alerta Vermelho</b>&nbsp O sensor 1 da loja Swift - CEP 09520-180
-                                - ultrapassou 4°C</h4>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 5 da loja Swift - CEP
-                                09520-180 - ultrapassou 92,5% UR</h4>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h4><b style="color: purple">Alerta Roxo</b>&nbsp O sensor 7 do frigorifico Bordon - CEP
-                                05120-020 - atingiu uma temperatura abaixo de 0°C
-                            </h4>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td>
-                            <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 9 da loja Swift - CEP
-                                02405-001 - ultrapassou 92,5% UR</h4>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h4><b style="color: blue">Alerta Azul</b>&nbsp O sensor 2 da loja Swift - CEP 05351-000 -
-                                atingiu uma UR de 84%</h4>
-                        </td>
-                    </tr>
-                </table>
-                <button onclick="voltar()">Voltar</button>
-            </div>
-        </div>
-    </div>
 
-    <!-- Pop Up termina aqui -->
+
 
     <section class="main">
         <div id="barra_nav" class="sidebar sidebar_position">
@@ -74,7 +31,55 @@
             <a href="../login.html" id="saida" onclick="botaoDeslogar()"><img src="../img/logout.png"> SAIR</a>
         </div>
 
+        <!-- Pop Up está aqui -->
 
+        <div id="div_pop_up" class="PopUp">
+            <div class="blur">
+                <div class="alertas">
+                    <h2>Alertas</h2>
+                    <hr>
+                    <table>
+                        <tr>
+                            <td>
+                                <h4><b style="color: red">Alerta Vermelho</b>&nbsp O sensor 1 da loja Swift - CEP
+                                    09520-180
+                                    - ultrapassou 4°C</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 5 da loja Swift - CEP
+                                    09520-180 - ultrapassou 92,5% UR</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b style="color: purple">Alerta Roxo</b>&nbsp O sensor 7 do frigorifico Bordon - CEP
+                                    05120-020 - atingiu uma temperatura abaixo de 0°C
+                                </h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 9 da loja Swift - CEP
+                                    02405-001 - ultrapassou 92,5% UR</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b style="color: blue">Alerta Azul</b>&nbsp O sensor 2 da loja Swift - CEP 05351-000
+                                    -
+                                    atingiu uma UR de 84%</h4>
+                            </td>
+                        </tr>
+                    </table>
+                    <button onclick="voltar()">Voltar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pop Up termina aqui -->
 
         <div class="caixa_maior">
             <header>
@@ -146,6 +151,8 @@
         div_pop_up.style.display = "flex";
 
         barra_nav.classList.remove("sidebar_position");
+
+        corpo.style.overflow = "hidden";
     }
 
     /* Botão Excluido aqui */
@@ -154,6 +161,8 @@
         div_pop_up.style.display = "none";
 
         barra_nav.classList.add("sidebar_position");
+
+        corpo.style.overflow = "auto";
     }
 
     // Voltar e registrar são iguais atualmente, porém vão ter funções destintas no futuro
@@ -162,7 +171,7 @@
         window.location.href = "../inicial.html"
     }
     function redirecionar_ajuda() {
-        window.location.href = "../fale_conosco.html"
+        window.location.href = "https://termoguard.atlassian.net/servicedesk/customer/portal/3"
     }
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
