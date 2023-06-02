@@ -11,13 +11,14 @@
     <link rel="shortcut icon" href="../img/foto.jpg" type="image/x-icon">
 </head>
 
-<body class="">
+<body class="" id="corpo">
     <div id="div_pop_up"></div>
     <section class="main">
-        <div class="sidebar ">
+        <div id="barra_nav" class="sidebar sidebar_position">
             <img src="../img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
             <ul>
-                <li><a href="home.html" class="sidebar_active"> <i class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
+                <li><a href="home.html" class="sidebar_active"> <i
+                            class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
                 <li><a href="location.html"><i class="fa-solid fa-location-dot fa-lg"></i>Localização</a></li>
                 <li><a href="Configuracao.html"><i class="fa-solid fa-gear fa-lg"></i>Configurações</a></li>
             </ul>
@@ -56,44 +57,45 @@
 
                     <div class="linha">
                         <h6>°C (Celsius)</h6>
-                        
+
                     </div>
 
                     <hr class="hr_menor_2">
 
                     <div class="linha">
                         <h6>°F (Farenheit)</h6>
-                        
+
                     </div>
 
                     <hr class="hr_menor_2">
 
                     <div class="linha">
                         <h6>K (Kelvin)</h6>
-                        
+
                     </div>
 
                     <hr class="hr_menor">
-                    
+
                     <h5 class="txt">Umidade</h5>
                     <div class="linha">
-                    <h6>UR (Umidade Relativa)</h6>
-                    
-                </div>
+                        <h6>UR (Umidade Relativa)</h6>
 
                     </div>
 
                 </div>
-            </section>
+
         </div>
     </section>
+    </div>
+    </section>
 </body>
+
 </html>
 <script>
 
-        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-      function Gerar_alertas() {
+    function Gerar_alertas() {
         div_pop_up.innerHTML = `
         <div class="blur">
             <div class="alertas">
@@ -132,12 +134,17 @@
             </div>
         </div>
         `
+        barra_nav.classList.remove("sidebar_position");
+
+        corpo.style.overflow = "hidden";
     }
 
-    
+
 
     function voltar() {
         div_pop_up.innerHTML = "";
+        barra_nav.classList.add("sidebar_position");
+        corpo.style.overflow = "auto";
     }
     function redirecionar_home() {
         window.location.href = "../index.html"
@@ -146,160 +153,4 @@
         window.location.href = "../fale_conosco.html"
     }
 
-    function celsius() {
-
-}
-
-function farenheit() {
-     // Verificar se a preferência de temperatura está armazenada no localStorage
-if (localStorage.getItem('temperaturePreference')) {
-// Obter a preferência de temperatura do localStorage
-var temperaturePreference = localStorage.getItem('temperaturePreference');
-} else {
-// Caso não haja preferência armazenada, definir a preferência padrão como Celsius
-var temperaturePreference = 'Celsius';
-}
-
-// Atualizar a exibição da preferência de temperatura na página
-var temperaturePreferenceElement = document.getElementById('temperaturePreference');
-temperaturePreferenceElement.textContent = temperaturePreference;
-
-// Dados de exemplo para o gráfico (temperaturas em Celsius)
-var temperatureDataCelsius = [20, 25, 30, 35, 25, 20];
-
-// Função para converter temperatura de Celsius para Fahrenheit
-function celsiusToFahrenheit(celsius) {
-return (celsius * 9/5) + 32;
-}
-
-// Converter dados de temperatura para a preferência atual
-var temperatureData = temperatureDataCelsius.map(function(celsius) {
-if (temperaturePreference === 'Fahrenheit') {
-    return celsiusToFahrenheit(celsius);
-} else {
-    return celsius;
-}
-});
-
-// Código adicional para renderizar o gráfico usando uma biblioteca de gráficos (ex: Chart.js)
-// ...
-
-// Evento de clique para alternar entre Celsius e Fahrenheit wdfdfwfff
-temperaturePreferenceElement.addEventListener('click', function() {
-// Alternar entre Celsius e Fahrenheit
-if (temperaturePreference === 'Celsius') {
-    temperaturePreference = 'Fahrenheit';
-} else {
-    temperaturePreference = 'Celsius';
-}
-
-// Atualizar a exibição da preferência de temperatura na página
-temperaturePreferenceElement.textContent = temperaturePreference;
-
-// Converter dados de temperatura para a nova preferência
-temperatureData = temperatureDataCelsius.map(function(celsius) {
-    if (temperaturePreference === 'Fahrenheit') {
-        return celsiusToFahrenheit(celsius);
-    } else {
-        return celsius;
-    }
-});
-
-// Atualizar o gráfico com os novos dados de temperatura
-// ...
-
-// Armazenar a preferência de temperatura no localStorage
-localStorage.setItem('temperaturePreference', temperaturePreference);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-    function kelvin() {
-
-    }
-
-
-
-
-
-
-
 </script>
-
-
-<!-- // Verificar se a preferência de temperatura está armazenada no localStorage
-if (localStorage.getItem('temperaturePreference')) {
-    // Obter a preferência de temperatura do localStorage
-    var temperaturePreference = localStorage.getItem('temperaturePreference');
-} else {
-    // Caso não haja preferência armazenada, definir a preferência padrão como Celsius
-    var temperaturePreference = 'Celsius';
-}
-
-// Atualizar a exibição da preferência de temperatura na página
-var temperaturePreferenceElement = document.getElementById('temperaturePreference');
-temperaturePreferenceElement.textContent = temperaturePreference;
-
-// Dados de exemplo para o gráfico (temperaturas em Celsius)
-var temperatureDataCelsius = [20, 25, 30, 35, 25, 20];
-
-// Função para converter temperatura de Celsius para Fahrenheit
-function celsiusToFahrenheit(celsius) {
-    return (celsius * 9/5) + 32;
-}
-
-// Converter dados de temperatura para a preferência atual
-var temperatureData = temperatureDataCelsius.map(function(celsius) {
-    if (temperaturePreference === 'Fahrenheit') {
-        return celsiusToFahrenheit(celsius);
-    } else {
-        return celsius;
-    }
-});
-
-// Código adicional para renderizar o gráfico usando uma biblioteca de gráficos (ex: Chart.js)
-// ...
-
-// Evento de clique para alternar entre Celsius e Fahrenheit
-temperaturePreferenceElement.addEventListener('click', function() {
-    // Alternar entre Celsius e Fahrenheit
-    if (temperaturePreference === 'Celsius') {
-        temperaturePreference = 'Fahrenheit';
-    } else {
-        temperaturePreference = 'Celsius';
-    }
-
-    // Atualizar a exibição da preferência de temperatura na página
-    temperaturePreferenceElement.textContent = temperaturePreference;
-
-    // Converter dados de temperatura para a nova preferência
-    temperatureData = temperatureDataCelsius.map(function(celsius) {
-        if (temperaturePreference === 'Fahrenheit') {
-            return celsiusToFahrenheit(celsius);
-        } else {
-            return celsius;
-        }
-    });
-
-    // Atualizar o gráfico com os novos dados de temperatura
-    // ...
-    
-    // Armazenar a preferência de temperatura no localStorage
-    localStorage.setItem('temperaturePreference', temperaturePreference);
-});
- -->

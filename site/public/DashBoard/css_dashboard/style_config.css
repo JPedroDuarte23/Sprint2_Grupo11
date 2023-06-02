@@ -38,13 +38,16 @@ body {
 }
 
 .sidebar {
-    position: fixed;
     display: flex;
     flex-direction: column;
     width: 15%;
     height: 100%;
     background-color: #f3f3f3;
     border-right: #000000 solid;
+}
+
+.sidebar_position {
+    position: fixed;
 }
 
 .sidebar .logomarca {

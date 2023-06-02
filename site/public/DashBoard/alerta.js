@@ -1,7 +1,13 @@
 var alertas = [];
 
-function obterdados(idAquario) {
-    fetch(`/medidas/tempo-real/${idAquario}`)
+var alertasUmidade = [];
+
+let toastBox = document.getElementById('alertasBox');
+
+let toastBox2 = document.getElementById('alertasBox2');
+
+function obterDados(idSensor) {
+    fetch(`/medidas/tempo-real/${idSensor}`)
         .then(resposta => {
 
             if (resposta.ok) {
@@ -9,7 +15,7 @@ function obterdados(idAquario) {
 
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    alertar(resposta, idAquario);
+                    alertar(resposta, idSensor);
                 });
             } else {
 
@@ -17,17 +23,20 @@ function obterdados(idAquario) {
             }
         })
         .catch(function (error) {
-            console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
+            console.error(`Erro na obtenção dos dados do sensor p/ gráfico: ${error.message}`);
         });
 
 }
 
-function alertar(resposta, idAquario) {
+function alertar(resposta, idSensor) {
     var temp = resposta[0].temperatura;
+    var umi = resposta[0].umidade;
 
-    console.log(idAquario === resposta[0].fk_aquario)
-    
-    var grauDeAviso ='';
+    console.log(idSensor === resposta[0].fkSensor)
+
+    var grauDeAviso = '';
+
+    var grauDeAviso2 = '';
 
 
     var limites = {
@@ -38,92 +47,133 @@ function alertar(resposta, idAquario) {
         muito_frio: 5
     };
 
+    var limitesUmi = {
+        muito_quente: 95,
+        quente: 92.85,
+        ideal: 88,
+        frio: 84,
+        muito_frio: 80
+    };
+
     var classe_temperatura = 'cor-alerta';
+
+    var classe_umidade = 'cor-alerta';
+
+    // validar temperatura
 
     if (temp >= limites.muito_quente) {
         classe_temperatura = 'cor-alerta perigo-quente';
         grauDeAviso = 'perigo quente'
-        grauDeAvisoCor = 'cor-alerta perigo-quente'
-        exibirAlerta(temp, idAquario, grauDeAviso, grauDeAvisoCor)
+        exibirAlerta(temp, idSensor, grauDeAviso)
     }
     else if (temp < limites.muito_quente && temp >= limites.quente) {
         classe_temperatura = 'cor-alerta alerta-quente';
         grauDeAviso = 'alerta quente'
-        grauDeAvisoCor = 'cor-alerta alerta-quente'
-        exibirAlerta(temp, idAquario, grauDeAviso, grauDeAvisoCor)
+        exibirAlerta(temp, idSensor, grauDeAviso)
     }
     else if (temp < limites.quente && temp > limites.frio) {
         classe_temperatura = 'cor-alerta ideal';
-        removerAlerta(idAquario);
+        exibirAlerta(temp, idSensor, grauDeAviso)
     }
     else if (temp <= limites.frio && temp > limites.muito_frio) {
         classe_temperatura = 'cor-alerta alerta-frio';
         grauDeAviso = 'alerta frio'
-        grauDeAvisoCor = 'cor-alerta alerta-frio'
-        exibirAlerta(temp, idAquario, grauDeAviso, grauDeAvisoCor)
+        exibirAlerta(temp, idSensor, grauDeAviso)
     }
     else if (temp <= limites.muito_frio) {
         classe_temperatura = 'cor-alerta perigo-frio';
         grauDeAviso = 'perigo frio'
-        grauDeAvisoCor = 'cor-alerta perigo-frio'
-        exibirAlerta(temp, idAquario, grauDeAviso, grauDeAvisoCor)
+        exibirAlerta(temp, idSensor, grauDeAviso)
     }
 
-    var card;
+    // validar umidade
 
-    if (idAquario == 1) {
-        temp_aquario_1.innerHTML = temp + "°C";
-        card = card_1
-    } else if (idAquario == 2) {
-        temp_aquario_2.innerHTML = temp + "°C";
-        card = card_2
-    } else if (idAquario == 3) {
-        temp_aquario_3.innerHTML = temp + "°C";
-        card = card_3
-    } else if (idAquario == 4) {
-        temp_aquario_4.innerHTML = temp + "°C";
-        card = card_4
+    if (umi >= limitesUmi.muito_quente) {
+        classe_umidade = 'cor-alerta perigo-quente';
+        grauDeAviso2 = 'perigo quente'
+        exibirAlertaUmidade(temp, idSensor, grauDeAviso2)
     }
-
-    card.className = classe_temperatura;
+    else if (umi < limitesUmi.muito_quente && umi >= limitesUmi.quente) {
+        classe_umidade = 'cor-alerta alerta-quente';
+        grauDeAviso2 = 'alerta quente'
+        exibirAlertaUmidade(umi, idSensor, grauDeAviso2)
+    }
+    else if (umi < limitesUmi.quente && umi > limitesUmi.frio) {
+        classe_umidade = 'cor-alerta ideal';
+        exibirAlertaUmidade(umi, idSensor, grauDeAviso2)
+    }
+    else if (umi <= limitesUmi.frio && umi > limitesUmi.muito_frio) {
+        classe_umidade = 'cor-alerta alerta-frio';
+        grauDeAviso2 = 'alerta frio'
+        exibirAlertaUmidade(umi, idSensor, grauDeAviso2)
+    }
+    else if (umi <= limitesUmi.muito_frio) {
+        classe_umidade = 'cor-alerta perigo-frio';
+        grauDeAviso2 = 'perigo frio'
+        exibirAlertaUmidade(umi, idSensor, grauDeAviso2)
+    }
 }
 
-function exibirAlerta(temp, idAquario, grauDeAviso, grauDeAvisoCor) {
-    var indice = alertas.findIndex(item => item.idAquario == idAquario);
+function exibirAlerta(temp, idSensor, grauDeAviso) {
+    var indice = alertas.findIndex(item => item.idSensor == idSensor);
 
     if (indice >= 0) {
-        alertas[indice] = { idAquario, temp, grauDeAviso, grauDeAvisoCor }
+        alertas[indice] = { idSensor, temp, grauDeAviso }
     } else {
-        alertas.push({ idAquario, temp, grauDeAviso, grauDeAvisoCor });
+        alertas.push({ idSensor, temp, grauDeAviso });
+        botaoTeste({ idSensor, temp, grauDeAviso })
     }
 
-    exibirCards();
-    
-// Dentro da div com classe grauDeAvisoCor há um caractere "invisível", 
-// que pode ser inserido clicando com o seu teclado em alt+255 ou pelo código adicionado acima.
 }
 
-function removerAlerta(idAquario) {
-    alertas = alertas.filter(item => item.idAquario != idAquario);
-    exibirCards();
-}
- 
-function exibirCards() {
-    alerta.innerHTML = '';
+function exibirAlertaUmidade(umi, idSensor, grauDeAviso2) {
+    var indiceUmidade = alertasUmidade.findIndex(item => item.idSensor == idSensor);
 
-    for (var i = 0; i < alertas.length; i++) {
-        var mensagem = alertas[i];
-        alerta.innerHTML += transformarEmDiv(mensagem);
+    if (indiceUmidade >= 0) {
+        alertasUmidade[indiceUmidade] = { idSensor, umi, grauDeAviso2 }
+    } else {
+        alertasUmidade.push({ idSensor, umi, grauDeAviso2 });
+        alertaUmidade({ idSensor, umi, grauDeAviso2 })
     }
+
 }
 
-function transformarEmDiv({ idAquario, temp, grauDeAviso, grauDeAvisoCor }) {
-    return `<div class="mensagem-alarme">
-    <div class="informacao">
-    <div class="${grauDeAvisoCor}">&#12644;</div> 
-     <h3>Aquário ${idAquario} está em estado de ${grauDeAviso}!</h3>
-    <small>Temperatura ${temp}.</small>   
-    </div>
-    <div class="alarme-sino"></div>
-    </div>`;
+// function removerAlerta(idSensor) {
+//     alertas = alertas.filter(item => item.idSensor != idSensor);
+// }
+
+// function exibirCards() {
+//     toastBox.innerHTML = '';
+
+//     for (var i = 0; i < alertas.length; i++) {
+//         var mensagem = alertas[i];
+//         toastBox.innerHTML += botaoTeste(mensagem);
+//     }
+// }
+
+function botaoTeste({ idSensor, temp, grauDeAviso }) {
+    let toast = document.createElement('div');
+    toast.classList.add('toast');
+    toast.innerHTML = `Alerta ${grauDeAviso} - Sensor ${idSensor} está 
+                       com uma temperatura de ${temp}!`;
+    alertasBox.appendChild(toast)
+
+    setTimeout(() => {
+        alertasBox.innerHTML = "";
+    }, 6000);
 }
+
+function alertaUmidade({ idSensor, umi, grauDeAviso2 }) {
+    let toast2 = document.createElement('div');
+    toast2.classList.add('toast2');
+    toast2.innerHTML = `Alerta ${grauDeAviso2} - Sensor ${idSensor} está 
+                        com umidade relativa (UR) de ${umi}!`;
+    alertasBox.appendChild(toast2)
+
+    setTimeout(() => {
+        toastBox2.innerHTML = "";
+    }, 6000);
+}
+
+
+
