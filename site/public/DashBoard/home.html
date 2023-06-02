@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="../img/foto.jpg" type="image/x-icon">
 </head>
 
-<body onload="botaoTeste()" id="corpo">
+<body id="corpo">
 
 
 
@@ -96,6 +96,9 @@
 
             <!-- Div botao excluido aqui -->
             <div class="alertasToatsBox" id="alertasBox">
+            </div>
+
+            <div class="alertasToatsBoxUmi" id="alertasBoxUmi">
             </div>
 
             <div class="card_graphic">
@@ -322,6 +325,13 @@
             document.getElementById(`myChart${idSensor}`),
             config
         );  
+
+        setInterval(() => {
+        atualizarGrafico(5000, dados, myChart),
+        atualizarGrafico(5001, dados, myChart),
+        atualizarGrafico(5002, dados, myChart),
+        atualizarGrafico(5003, dados, myChart)
+        }, 1000);
     } 
 
     // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
@@ -351,6 +361,7 @@
                         console.log(dados.labels[dados.labels.length - 1])
                         console.log("---------------------------------------------------------------")
                     } else {
+                        console.log(dados)
                         // tirando e colocando valores no gráfico
                         dados.labels.shift(); // apagar o primeiro
                         dados.labels.push(novoRegistro[0].dtHora_grafico); // incluir um novo momento
@@ -363,26 +374,22 @@
 
                         myChart.update();
                     }
-
+                        obterDados(idSensor);
+                        
+                    
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => plotarGrafico(idSensor,dados, myChart), 2000);
+                    // proximaAtualizacao = setTimeout(() => plotarGrafico(idSensor,dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => plotarGrafico(idSensor,dados, myChart), 2000);
+                // proximaAtualizacao = setTimeout(() => plotarGrafico(idSensor,dados, myChart), 2000);
             }
         })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
-    setInterval(() => {
-        atualizarGrafico(5000),
-        atualizarGrafico(5001),
-        atualizarGrafico(5002),
-        atualizarGrafico(5003)
-        }, 1000);
 
 </script>
 
