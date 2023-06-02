@@ -135,9 +135,6 @@
                         <div class="grafico">
                             <canvas id="myChart5003"></canvas>
                         </div>
-                        <div class="grafico">
-                            <canvas id="myChart5004"></canvas>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -226,7 +223,6 @@
         obterDadosGrafico(5001)
         obterDadosGrafico(5002)
         obterDadosGrafico(5003)
-        obterDadosGrafico(5004)
     }
 
 
@@ -288,17 +284,10 @@
 
             },
             {
-                label: 'Temperatura Fahrenheit',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(200, 82, 32)',
-                tension: 0.1
-            },
-            {
                 label: 'Temperatura',
                 data: [],
                 fill: false,
-                borderColor: 'browm',
+                borderColor: 'rgb(199, 52, 52)',
                 tension: 0.1
             }]
 
@@ -314,17 +303,6 @@
             labels.push(registro.dtHora_grafico);
             dados.datasets[0].data.push(registro.umidade);
             dados.datasets[1].data.push(registro.temperatura);
-            dados.datasets[2].data.push(registro.temperatura);
-
-            var temp_fah = (resposta[i]* 9/5) + 32
-    
-            for (fah = 0; fah < resposta.length; fah++){
-                var registro_fah = temp_fah
-                labels.push(registro.dtHora_grafico);
-                
-                dados.datasets[2].data.push(registro.temperatura);
-                console.log(registro_fah)
-            }
         }
 
         console.log('----------------------------------------------')
@@ -341,11 +319,8 @@
             data: dados,
         };
 
-        // Adicionando gráfico criado em div na 
-        let myChart2 = new Chart(
-            document.getElementById(`myChart${idSensor}`),
-            config
-        );
+        // Adicionando gráfico criado em div na tela
+
         let myChart = new Chart(
             document.getElementById(`myChart${idSensor}`),
             config
@@ -397,23 +372,18 @@
                         dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
                         dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
 
-                        dados.datasets[2].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[2].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
                         myChart.update();
-                        myChart2.update()
                     }
                         obterDados(idSensor);
                         
                     
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-
+                    // proximaAtualizacao = setTimeout(() => plotarGrafico(idSensor,dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart, myChart2), 2000);
-                // proximaAtualizacao = setTimeout(() => plotarGrafico(idSensor,dados, myChart), 2000)
+                // proximaAtualizacao = setTimeout(() => plotarGrafico(idSensor,dados, myChart), 2000);
             }
         })
             .catch(function (error) {
