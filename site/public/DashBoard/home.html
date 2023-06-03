@@ -21,7 +21,7 @@
 
     <section class="main">
         <div id="barra_nav" class="sidebar sidebar_position">
-            <img src="../img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
+            <img src="../img/logo.jpg" class="logomarca">
             <ul>
                 <li><a href="home.html" class="sidebar_active"> <i
                             class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
@@ -31,61 +31,10 @@
             <a href="../login.html" id="saida" onclick="botaoDeslogar()"><img src="../img/logout.png"> SAIR</a>
         </div>
 
-        <!-- Pop Up está aqui -->
-
-        <div id="div_pop_up" class="PopUp">
-            <div class="blur">
-                <div class="alertas">
-                    <h2>Alertas</h2>
-                    <hr>
-                    <table>
-                        <tr>
-                            <td>
-                                <h4><b style="color: red">Alerta Vermelho</b>&nbsp O sensor 1 da loja Swift - CEP
-                                    09520-180
-                                    - ultrapassou 4°C</h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 5 da loja Swift - CEP
-                                    09520-180 - ultrapassou 92,5% UR</h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><b style="color: purple">Alerta Roxo</b>&nbsp O sensor 7 do frigorifico Bordon - CEP
-                                    05120-020 - atingiu uma temperatura abaixo de 0°C
-                                </h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 9 da loja Swift - CEP
-                                    02405-001 - ultrapassou 92,5% UR</h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><b style="color: blue">Alerta Azul</b>&nbsp O sensor 2 da loja Swift - CEP 05351-000
-                                    -
-                                    atingiu uma UR de 84%</h4>
-                            </td>
-                        </tr>
-                    </table>
-                    <button onclick="voltar()">Voltar</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pop Up termina aqui -->
-
         <div class="caixa_maior">
             <header>
                 <h2>Home</h2>
                 <div class="lateral_icones">
-                    <div class="icone" onclick="Gerar_alertas()"><i class="fa-solid fa-bell"></i></div>
                     <div class="icone " onclick="redirecionar_ajuda()"><i class="fa-solid fa-circle-question"></i></div>
                     <div class="user">
                         <div class="circulo"></div>
@@ -106,13 +55,9 @@
             <div class="card_graphic">
                 <div class="info_space">
                     <div class="informarcoes">
-                        <div class="alertas_dia">
-                            <span>0</span>
-                            <span id="texto">Alertas no Dia</span>
-                        </div>
                         <div class="sensor_fun">
                             <span id="sensores_funconando"></span>
-                            <span id="texto">Sensores em Funcionamento</span>
+                            <span id="texto">Sensores Funcionando</span>
                         </div>
                         <div class="locais">
                             <span id="locais_cadastrados"></span>
@@ -121,7 +66,7 @@
                     </div>
                 </div>
                 <div class="gerais">
-                    <p><b>Grafícos gerais</b></p>
+                    <p><b>Grafícos Swift ZN</b></p>
                     <div class="linha1">
                         <div class="grafico">
                             <canvas id="myChart5000"></canvas>
@@ -152,29 +97,6 @@
 
 <script>
 
-    function Gerar_alertas() {
-        div_pop_up.style.display = "flex";
-
-        barra_nav.classList.remove("sidebar_position");
-
-        corpo.style.overflow = "hidden";
-    }
-
-    /* Botão Excluido aqui */
-
-    function voltar() {
-        div_pop_up.style.display = "none";
-
-        barra_nav.classList.add("sidebar_position");
-
-        corpo.style.overflow = "auto";
-    }
-
-    // Voltar e registrar são iguais atualmente, porém vão ter funções destintas no futuro
-
-    function redirecionar_home() {
-        window.location.href = "../inicial.html"
-    }
     function redirecionar_ajuda() {
         window.location.href = "https://termoguard.atlassian.net/servicedesk/customer/portal/3"
     }

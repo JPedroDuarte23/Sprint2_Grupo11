@@ -25,10 +25,6 @@ body {
 }
 
 /* barra lateral */
-.logomarca:hover {
-    cursor: pointer;
-}
-
 .main {
     display: flex;
     flex-wrap: wrap;

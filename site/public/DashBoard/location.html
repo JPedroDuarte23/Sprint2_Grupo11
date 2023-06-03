@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Localização</title>
     <link rel="stylesheet" href="css_dashboard/locationcss.css">
-    <link rel="stylesheet" href="css_dashboard/style_config.css">
     <link rel="shortcut icon" href="../img/foto.jpg" type="image/x-icon">
 </head>
 
@@ -15,7 +14,7 @@
     <div id="div_pop_up"></div>
     <div class="main">
         <div id="barra_nav" class="sidebar sidebar_position">
-            <img src="../img/logo.jpg" class="logomarca" onclick="redirecionar_home()">
+            <img src="../img/logo.jpg" class="logomarca">
             <ul>
                 <li><a href="home.html" class="sidebar_active"> <i
                             class="fa-solid fa-chart-simple fa-lg"></i>Gráficos</a></li>
@@ -28,15 +27,14 @@
             <header>
                 <h2>Localizações</h2>
                 <div class="lateral_icones">
-                    <div class="icone" onclick="Gerar_alertas()"><i class="fa-solid fa-bell"></i></div>
                     <div class="icone " onclick="redirecionar_ajuda()"><i class="fa-solid fa-circle-question"></i></div>
                     <div class="user">
                         <div class="circulo"></div>
-                        <h4<span id="b_usuario">Swift</span></h4>
+                        <h4><span id="b_usuario">Swift</span></h4>
                     </div>
                 </div>
             </header>
-            <div class="lista_config">
+            <div class="lista_locais">
                 <div class="planilha">
                     <h3 class="texto_importante">Locais com sensores intalados</h3>
                     <div class="sensor1 sensores">
@@ -58,56 +56,6 @@
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    function Gerar_alertas() {
-        div_pop_up.innerHTML = `
-        <div class="blur">
-            <div class="alertas">
-                <h2>Alertas</h2>
-                <hr>
-                <table>
-                        <tr>
-                            <td>
-                                <h4><b style="color: red">Alerta Vermelho</b>&nbsp O sensor 1 da loja Swift - CEP 09520-180 - ultrapassou 4°C</h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 5 da loja Swift - CEP 09520-180 - ultrapassou 92,5% UR</h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><b style="color: purple">Alerta Roxo</b>&nbsp O sensor 7 do frigorifico Bordon - CEP 05120-020 - atingiu uma temperatura abaixo de 0°C
-                                </h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <h4><b style="color: #ffc000">Alerta Amarelo</b>&nbsp O sensor 9 da loja Swift - CEP 02405-001 - ultrapassou 92,5% UR</h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><b style="color: blue">Alerta Azul</b>&nbsp O sensor 2 da loja Swift - CEP 05351-000 - atingiu uma UR de 84%</h4>
-                            </td>
-                        </tr>
-                        </table>
-                        <button onclick="voltar()">Voltar</button>
-            </div>
-        </div>
-        `
-        barra_nav.classList.remove("sidebar_position");
-        corpo.style.overflow = "hidden"; 
-    }
-    function voltar() {
-        div_pop_up.innerHTML = "";
-        barra_nav.classList.add("sidebar_position");
-        corpo.style.overflow = "auto";
-    }
-    function redirecionar_home() {
-        window.location.href = "../index.html"
-    }
     function redirecionar_ajuda() {
         window.location.href = "../fale_conosco.html"
     }

@@ -2,18 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: #f3f3f3;
+    width: 100%;
+    height: 100vh;
 }
 
 html,
 body {
     height: 100%;
-}
-
-header {
-    background-color: #f3f3f3;
-    display: flex;
-    justify-content: space-between;
 }
 
 .blur {
@@ -22,6 +22,162 @@ header {
     position: fixed;
     backdrop-filter: blur(10px) brightness(0.5);
     background-color: rgba(0, 0, 0, 0.5)
+}
+
+/* barra lateral */
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 100%;
+    background-color: #f3f3f3;
+    border-right: #000000 solid;
+}
+
+.sidebar_position {
+    position: fixed;
+}
+
+.sidebar .logomarca {
+    width: 70%;
+    margin: 10% 10% 10% 15%;
+}
+
+.sidebar hr {
+    margin: 0 5%;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 5% 0% 10% 0%;
+    color: #c43c10;
+    padding: 8% 0 8% 10%;
+    font-size: 1.2vw;
+    height: 50%;
+}
+
+.sidebar.dark_mode a {
+    color: white;
+}
+
+.sidebar i {
+    width: 10%;
+    margin: 4% 6% 4% 10%;
+}
+
+.sidebar a:hover {
+    background-color: rgb(67, 190, 218);
+    color: black;
+    border-radius: 0px 4px 4px 0px;
+    box-shadow: inset 0 4px 13px -7px rgba(0, 0, 0, 0.3), inset 0 -3px 13px -7px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar #saida {
+    align-self: center;
+    color: #000000;
+    padding: 0;
+    height: auto;
+    margin-top: auto;
+}
+
+.sidebar #saida:hover {
+    background-color: #f3f3f3;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* barra de navegação */
+
+.caixa_maior {
+    display: flex;
+    flex-direction: column;
+    width: 84%;
+    height: auto;
+    align-items: center;
+    margin-left: 15%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 40%;
+    width: 100%;
+    margin: 1% 0 3% 2%;
+}
+
+header h2 {
+    margin-top: 1%;
+}
+
+.lateral_icones {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5%;
+    gap: 4%;
+
+}
+
+.lateral_icones h4 {
+    font-weight: normal;
+    font-size: 1.1vw;
+}
+
+.lateral_icones .icone {
+    width: 20%;
+    height: 6vh;
+    background-color: #7a7a7a;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icone i {
+    cursor: pointer;
+    background: -webkit-linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.icone:hover {
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.lateral_icones .circulo {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background: linear-gradient(155deg, #D47C5E 0%, #ADD8EF 80%);
+    margin: 0% 10% 0% 4%;
+}
+
+.lista_locais {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    min-height: 95%;
+    margin-left: 2%;
 }
 
 .logo {
@@ -33,14 +189,6 @@ header {
     height: 70px;
     border-radius: 0px;
     margin: 0 8px;
-}
-
-.logo img {
-    cursor: pointer;
-}
-
-.logo img:hover {
-    opacity: 0.7;
 }
 
 .info-header {

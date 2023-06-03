@@ -25,113 +25,8 @@ body {
     background-color: rgba(0, 0, 0, 0.5)
 }
 
-/* pop up registar*/
-.PopUp {
-    display: none;
-    position: absolute;
-}
-
-.pop_up {
-    position: absolute;
-    width: 60%;
-    height: 60%;
-    background-color: #f3f3f3;
-    border-radius: 5px;
-    top: 15%;
-    left: 20%;
-    padding: 5%;
-}
-
-.pop_up h2 {
-    text-align: center;
-    margin-bottom: 0.5%;
-    font-size: 1.5vw;
-}
-
-.pop_up hr {
-    width: 25%;
-    margin: 0 0 4% 37.5%;
-}
-
-.pop_up h3 {
-    font-size: 1.3vw;
-    margin: 2% 0 2% 0;
-}
-
-.pop_up input {
-    width: 90%;
-    margin: 0 5%;
-    padding: 0.5%;
-}
-
-.pop_up button {
-    margin-top: 5%;
-    margin-left: 42.5%;
-    width: 20%;
-    padding: 2% 0;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 1.1vw;
-    color: black;
-    background: linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
-    border: none;
-    cursor: pointer;
-}
-
-.alertas {
-    position: absolute;
-    width: 60%;
-    height: 70%;
-    background-color: #f3f3f3;
-    border-radius: 5px;
-    top: 15%;
-    left: 20%;
-    padding: 4%;
-    color: black;
-}
-
-.alertas table {
-    width: 100%;
-
-}
-
-td {
-    padding: 2% 0% 2% 0%;
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid black;
-}
-
-.alertas h2 {
-    margin-bottom: 2%;
-}
-
-.alertas h4 {
-    margin: 0.5% 0 0.5% 1%;
-    font-weight: 500;
-}
-
-.alertas hr {
-    border-color: black;
-}
-
-.alertas button {
-    width: 15%;
-    padding: 1% 0;
-    margin: 5% 0 0 40%;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 1.1vw;
-    color: black;
-    background: linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
-    border: none;
-    cursor: pointer;
-}
 
 /* barra lateral */
-.logomarca:hover {
-    cursor: pointer;
-}
 
 .main {
     display: flex;
@@ -256,7 +151,8 @@ header h2 {
 .icone i {
     cursor: pointer;
     background: -webkit-linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
-    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .icone:hover {
@@ -443,23 +339,6 @@ header h2 {
     justify-content: space-evenly;
     align-items: center;
     height: auto;
-}
-
-.alertas_dia {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50%;
-    padding: 2%;
-    width: 20vw;
-    height: 10vh;
-    background: linear-gradient(90deg, rgba(95, 204, 229, 1) 0%, rgba(173, 230, 247, 1) 100%);
-    box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
-    border-radius: 12px;
-}
-
-.alertas_dia span {
-    font-size: 3rem;
 }
 
 .sensor_fun {
