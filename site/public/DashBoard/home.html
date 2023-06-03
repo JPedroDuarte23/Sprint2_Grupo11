@@ -95,10 +95,12 @@
             </header>
 
             <!-- Div botao excluido aqui -->
-            <div class="alertasToatsBox" id="alertasBox">
-            </div>
+            <div style="display: flex; flex-direction: column; gap: 50px; width: 500px; height: 500px;">
+                <div class="alertasToatsBox" id="alertasBox">
+                </div>
 
-            <div class="alertasToatsBoxUmi" id="alertasBoxUmi">
+                <div class="alertasToatsBoxUmi" id="alertasBoxUmi">
+                </div>
             </div>
 
             <div class="card_graphic">
@@ -324,15 +326,15 @@
         let myChart = new Chart(
             document.getElementById(`myChart${idSensor}`),
             config
-        );  
+        );
 
         setInterval(() => {
-        atualizarGrafico(5000, dados, myChart),
-        atualizarGrafico(5001, dados, myChart),
-        atualizarGrafico(5002, dados, myChart),
-        atualizarGrafico(5003, dados, myChart)
-        }, 1000);
-    } 
+            atualizarGrafico(5000, dados, myChart),
+                atualizarGrafico(5001, dados, myChart),
+                atualizarGrafico(5002, dados, myChart),
+                atualizarGrafico(5003, dados, myChart)
+        }, 6000);
+    }
 
     // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
     // buscando a última medida inserida em tabela contendo as capturas, 
@@ -374,9 +376,14 @@
 
                         myChart.update();
                     }
+
+
+                    if (novoRegistro[0].temperatura >= 4 || novoRegistro[0].umidade >= 95) {
                         obterDados(idSensor);
-                        
-                    
+                    }
+
+
+
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                     // proximaAtualizacao = setTimeout(() => plotarGrafico(idSensor,dados, myChart), 2000);
                 });

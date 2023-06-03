@@ -64,26 +64,26 @@ function alertar(resposta, idSensor) {
     if (temp >= limites.muito_quente) {
         classe_temperatura = 'cor-alerta perigo-quente';
         grauDeAviso = 'perigo quente'
-        exibirAlerta(temp, idSensor, grauDeAviso)
+        exibirAlerta(temp, idSensor, grauDeAviso, true)
     }
     else if (temp < limites.muito_quente && temp >= limites.quente) {
         classe_temperatura = 'cor-alerta alerta-quente';
         grauDeAviso = 'alerta quente'
-        exibirAlerta(temp, idSensor, grauDeAviso)
+        exibirAlerta(temp, idSensor, grauDeAviso, true)
     }
-    else if (temp < limites.quente && temp > limites.frio) {
-        classe_temperatura = 'cor-alerta ideal';
-        exibirAlerta(temp, idSensor, grauDeAviso)
-    }
+    // else if (temp < limites.quente && temp > limites.frio) {
+    //     classe_temperatura = 'cor-alerta ideal';
+    //     exibirAlerta(temp, idSensor, grauDeAviso, true)
+    // }
     else if (temp <= limites.frio && temp > limites.muito_frio) {
         classe_temperatura = 'cor-alerta alerta-frio';
         grauDeAviso = 'alerta frio'
-        exibirAlerta(temp, idSensor, grauDeAviso)
+        exibirAlerta(temp, idSensor, grauDeAviso, true)
     }
     else if (temp <= limites.muito_frio) {
         classe_temperatura = 'cor-alerta perigo-frio';
         grauDeAviso = 'perigo frio'
-        exibirAlerta(temp, idSensor, grauDeAviso)
+        exibirAlerta(temp, idSensor, grauDeAviso, true)
     }
 
     // validar umidade
@@ -91,52 +91,42 @@ function alertar(resposta, idSensor) {
     if (umi >= limitesUmi.muito_quente) {
         classe_umidade = 'cor-alerta perigo-quente';
         grauDeAviso2 = 'perigo quente'
-        exibirAlertaUmidade(temp, idSensor, grauDeAviso2)
+        exibirAlerta(umi, idSensor, grauDeAviso2, false)
     }
     else if (umi < limitesUmi.muito_quente && umi >= limitesUmi.quente) {
         classe_umidade = 'cor-alerta alerta-quente';
         grauDeAviso2 = 'alerta quente'
-        exibirAlertaUmidade(umi, idSensor, grauDeAviso2)
+        exibirAlerta(umi, idSensor, grauDeAviso2, false)
     }
-    else if (umi < limitesUmi.quente && umi > limitesUmi.frio) {
-        classe_umidade = 'cor-alerta ideal';
-        exibirAlertaUmidade(umi, idSensor, grauDeAviso2)
-    }
+    // else if (umi < limitesUmi.quente && umi > limitesUmi.frio) {
+    //     classe_umidade = 'cor-alerta ideal';
+    //     exibirAlerta(umi, idSensor, grauDeAviso2, false)
+    // }
     else if (umi <= limitesUmi.frio && umi > limitesUmi.muito_frio) {
         classe_umidade = 'cor-alerta alerta-frio';
         grauDeAviso2 = 'alerta frio'
-        exibirAlertaUmidade(umi, idSensor, grauDeAviso2)
+        exibirAlerta(umi, idSensor, grauDeAviso2, false)
     }
     else if (umi <= limitesUmi.muito_frio) {
         classe_umidade = 'cor-alerta perigo-frio';
         grauDeAviso2 = 'perigo frio'
-        exibirAlertaUmidade(umi, idSensor, grauDeAviso2)
+        exibirAlerta(umi, idSensor, grauDeAviso2, false)
     }
 }
 
-function exibirAlerta(temp, idSensor, grauDeAviso) {
+function exibirAlerta(tipoDado, idSensor, grauDeAviso, isTemp) {
     var indice = alertas.findIndex(item => item.idSensor == idSensor);
 
     if (indice >= 0) {
-        alertas[indice] = { idSensor, temp, grauDeAviso }
+        alertas[indice] = { idSensor, tipoDado, grauDeAviso, isTemp };
+        botaoTeste({ idSensor, tipoDado, grauDeAviso, isTemp });
     } else {
-        alertas.push({ idSensor, temp, grauDeAviso });
-        botaoTeste({ idSensor, temp, grauDeAviso })
+        alertas.push({ idSensor, tipoDado, grauDeAviso, isTemp });
+        botaoTeste({ idSensor, tipoDado, grauDeAviso, isTemp })
     }
 
 }
 
-function exibirAlertaUmidade(umi, idSensor, grauDeAviso2) {
-    var indiceUmidade = alertasUmidade.findIndex(item => item.idSensor == idSensor);
-
-    if (indiceUmidade >= 0) {
-        alertasUmidade[indiceUmidade] = { idSensor, umi, grauDeAviso2 }
-    } else {
-        alertasUmidade.push({ idSensor, umi, grauDeAviso2 });
-        alertaUmidade({ idSensor, umi, grauDeAviso2 })
-    }
-
-}
 
 // function removerAlerta(idSensor) {
 //     alertas = alertas.filter(item => item.idSensor != idSensor);
@@ -151,28 +141,32 @@ function exibirAlertaUmidade(umi, idSensor, grauDeAviso2) {
 //     }
 // }
 
-function botaoTeste({ idSensor, temp, grauDeAviso }) {
-    let toast = document.createElement('div');
-    toast.classList.add('toast');
-    toast.innerHTML = `Alerta ${grauDeAviso} - Sensor ${idSensor} está 
-                       com uma temperatura de ${temp}!`;
-    alertasBox.appendChild(toast)
+function botaoTeste({ idSensor, tipoDado, grauDeAviso, isTemp }) {
 
-    setTimeout(() => {
-        alertasBox.innerHTML = "";
-    }, 6000);
-}
+        
+    
+        let toastTemperatura = document.createElement('div');
+        toastTemperatura.classList.add('toast2');
+        toastTemperatura.innerHTML = `Alerta ${grauDeAviso} - Sensor ${idSensor} está 
+                        com umidade relativa (UR) de ${tipoDado}!`;
+        alertasBox.appendChild(toastTemperatura)
 
-function alertaUmidade({ idSensor, umi, grauDeAviso2 }) {
-    let toast2 = document.createElement('div');
-    toast2.classList.add('toast2');
-    toast2.innerHTML = `Alerta ${grauDeAviso2} - Sensor ${idSensor} está 
-                        com umidade relativa (UR) de ${umi}!`;
-    alertasBox.appendChild(toast2)
+        setTimeout(() => {
+            toastBox2.innerHTML = "";
+        }, 6000);
+    
 
-    setTimeout(() => {
-        toastBox2.innerHTML = "";
-    }, 6000);
+        let toastUmidade = document.createElement('div');
+        toastUmidade.classList.add('toast');
+        toastUmidade.innerHTML = `Alerta ${grauDeAviso} - Sensor ${idSensor} está 
+                       com uma temperatura de ${tipoDado}!`;
+        alertasBox.appendChild(toastUmidade)
+
+        setTimeout(() => {
+            alertasBox.innerHTML = "";
+        }, 6000);
+    
+
 }
 
 

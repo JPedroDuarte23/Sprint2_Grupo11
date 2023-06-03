@@ -9,6 +9,7 @@ body {
     background-color: #f3f3f3;
     width: 100%;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 html,
@@ -279,6 +280,18 @@ header h2 {
 
 /* Alerta Toast Temperatura*/
 
+#alertasBox {
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+    height: auto;
+    width: auto;
+}
+
 .alertasToastsBox {
     position: absolute;
     bottom: 30px;
@@ -295,7 +308,7 @@ header h2 {
     height: 80px;
     background-color: #FFF;
     font-weight: 500;
-    margin: 15px 0;
+    margin: 100px 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
@@ -351,9 +364,20 @@ header h2 {
 
   /* Alerta Toast Umidade */
 
+#alertasBoxUmi {
+    bottom: 100px;
+    right: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+}
+
+
   .alertasToatsBoxUmi {
     position: absolute;
-    bottom: 30px;
+    bottom: 100px;
     right: 30px;
     display: flex;
     align-items: flex-end;
